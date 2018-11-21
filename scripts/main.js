@@ -50,11 +50,64 @@ theHuyApp.ready(() => {
 		theHuyApp.avoidNull(desktop_searchToggle);
 	} else {
 		/* The viewport is less than 992 pixels wide */
+
+		theHuyApp.avoidNull(mobile_headerSidemenuToggle);
 	}
+
+	theHuyApp.avoidNull(toolsMapping);
+	theHuyApp.avoidNull(customNavMapping);
+	theHuyApp.avoidNull(searchBoxMapping);
 })
 
 const desktop_searchToggle = () => {
 	theHuyApp.select('.search-toggle').onclick = () => {
 		theHuyApp.active('.search-wrapper', 'active');
 	}
+}
+
+const mobile_headerSidemenuToggle = () => {
+	theHuyApp.select('.canhcam-header-1 .hamburger').onclick = () => {
+		theHuyApp.active('.canhcam-header-1 .hamburger', 'is-active')
+		theHuyApp.active('.sidemenu-header', 'active')
+		theHuyApp.active('.header-backdrop', 'active')
+	}
+
+	theHuyApp.select('.header-backdrop').onclick = () => {
+		theHuyApp.active('.canhcam-header-1 .hamburger', 'is-active')
+		theHuyApp.active('.sidemenu-header', 'active')
+		theHuyApp.active('.header-backdrop', 'active')
+	}
+}
+
+const toolsMapping = () => {
+	return new MappingListener({
+		selector: '.tools',
+		mobileWrapper: '.sidemenu-header-mapping',
+		mobileMethod: 'appendTo',
+		desktopWrapper: '.header',
+		desktopMethod: 'appendTo',
+		breakpoint: 992
+	}).watch();
+}
+
+const customNavMapping = () => {
+	return new MappingListener({
+		selector: '.custom-nav',
+		mobileWrapper: '.sidemenu-header-mapping',
+		mobileMethod: 'appendTo',
+		desktopWrapper: '.desktop-nav',
+		desktopMethod: 'prependTo',
+		breakpoint: 992
+	}).watch();
+}
+
+const searchBoxMapping = () => {
+	return new MappingListener({
+		selector: '.searchbox',
+		mobileWrapper: '.sidemenu-header-mapping',
+		mobileMethod: 'appendTo',
+		desktopWrapper: '.desktop-search',
+		desktopMethod: 'appendTo',
+		breakpoint: 992
+	}).watch();
 }

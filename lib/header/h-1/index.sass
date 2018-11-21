@@ -1,148 +1,246 @@
 .canhcam-header-1
-	padding-top: .75rem
-	background-color: #ffffff
-	position: fixed
-	width: 100%
-	top: 0
-	left: 0
-	z-index: 99999
-	box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1)
-	.header
-		+flex-center()
-		justify-content: space-between
-		.logo
-		.tools
+	+media-breakpoint-down(md)
+		position: fixed
+		width: 100%
+		padding-top: .75rem
+		padding-bottom: .75rem
+		background-color: #ffffff
+		top: 0
+		right: 0
+		z-index: 999
+		box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1)
+		.search-wrapper
+			display: none
+		.header
+			display: flex
+			align-items: center
+			justify-content: space-between
+			.logo
+				img
+					height: 2.5rem
+			.partner
+				display: none
+	+media-breakpoint-up(lg)
+		padding-top: .75rem
+		background-color: #ffffff
+		position: fixed
+		width: 100%
+		top: 0
+		left: 0
+		z-index: 999
+		box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1)
+		.header
 			+flex-center()
-			.phone
-				i, em
-					color: $main
-					margin-right: .5rem
-					font-size: 1.125rem
-				a
-					text-decoration: none
-					color: #333333
-					font-weight: 700
-					transition: .3s ease-in-out
-					font-size: 1.125rem
-					&:hover, &:focus, &:active
-						color: $extra
-			.language
-				margin-left: 1.5rem
-				.dropdown
-					+flex-center()
-					box-shadow: inset 0 0 0 1px #e1e1e1
-					i, em
-						color: $main
-						margin-right: .15rem
-					.dropdown-toggle
-						text-decoration: none
-						margin-left: .15rem
-						padding-left: 2rem
-						padding-right: 1rem
-						padding-top: .2rem
-						padding-bottom: .25rem
-						color: #999999
-						font-size: .875rem
-						font-weight: 700
-						position: relative
-						transition: .3s ease-in-out
-						&:before
-							position: absolute
-							content: "\F59F"
-							font-family: 'Material Design Icons'
-							font-weight: 700
-							color: $main
-							left: .7rem
-							font-size: 1.125rem
-							top: 50%
-							transform: translateY(-50%)
-						&:after
-							display: none
-						&:hover
-							color: $main
-					.dropdown-menu
-						.dropdown-item
-							&.active
-								background: $main
-								color: #ffffff
+			justify-content: space-between
+			.hamburger
+				display: none
 
-	.desktop-nav
-		position: relative
-		display: flex
-		justify-content: space-between
-		background-color: $main
-		bottom: -2rem
-	.custom-nav
-		display: flex
-		.custom-nav-item
-			height:
-			a
+		.desktop-nav
+			position: relative
+			display: flex
+			justify-content: space-between
+			background-color: $main
+			bottom: -2rem
+		.custom-nav
+			display: flex
+			.custom-nav-item
+				height:
+				a
+					color: #ffffff
+					font-size: .9375rem
+					font-weight: 400
+					text-decoration: none
+					text-transform: uppercase
+					height: 4rem
+					line-height: 4rem
+					padding-right: 1rem
+					padding-left: 1rem
+					background-color: $main
+					display: block
+					transition: .3s ease-in-out
+					&:hover, &:active, &:focus
+						background-color: #ffffff
+						box-shadow: 0 2px 0 0 $main
+						color: $main
+					+media-breakpoint-up(xl)
+						padding-right: 1.875rem
+						padding-left: 1.875rem
+
+		.search-toggle
+			outline: none
+			border: 0
+			padding: 0
+			margin: 0
+			width: 4rem
+			height: 4rem
+			background-color: $extra
+			cursor: pointer
+			font-size: 25px
+			+flex-center()
+			transition: .3s ease-in-out
+			i, em
 				color: #ffffff
-				font-size: .9375rem
-				font-weight: 400
+				transition: .3s ease-in-out
+			&:hover, &:active, &:focus
+				background-color: #ffffff
+				box-shadow: 0 2px 0 0 $extra
+				i, em
+					color: $extra
+
+		.search-wrapper
+			.desktop-search
+				position: absolute
+				z-index: -1
+				opacity: 0
+				bottom: 0
+				right: 0
+			&.active
+				.search-toggle
+					.mdi-magnify
+						&:before
+							content: '\F156'
+				.desktop-search
+					z-index: 888
+					opacity: 1
+					bottom: -2.5rem
+
+//Sidemenu Header
+section.sidemenu-header
+	background: -moz-linear-gradient(135deg, #BF1E2D 0%, #AD1F5C 20%, #873879 40%, #59477F 60%, #344B71 80%, #2F4858 100%)
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #2F4858), color-stop(20%, #344B71), color-stop(40%, #59477F), color-stop(60%, #873879), color-stop(80%, #AD1F5C), color-stop(100%, #BF1E2D))
+	background: -webkit-linear-gradient(135deg, #BF1E2D 0%, #AD1F5C 20%, #873879 40%, #59477F 60%, #344B71 80%, #2F4858 100%)
+	background: -o-linear-gradient(135deg, #BF1E2D 0%, #AD1F5C 20%, #873879 40%, #59477F 60%, #344B71 80%, #2F4858 100%)
+	background: -ms-linear-gradient(135deg, #BF1E2D 0%, #AD1F5C 20%, #873879 40%, #59477F 60%, #344B71 80%, #2F4858 100%)
+	background: linear-gradient(315deg, #BF1E2D 0%, #AD1F5C 20%, #873879 40%, #59477F 60%, #344B71 80%, #2F4858 100%)
+	position: fixed
+	width: 20rem
+	height: calc(100vh - 4rem)
+	top: 4rem
+	left: -20rem
+	padding-top: 1rem
+	padding-bottom: 1rem
+	overflow-y: auto
+	z-index: 1001
+	background-color: darkgreen
+	transition: .3s ease-in-out
+	.custom-nav
+		margin-top: 0.5rem
+		.custom-nav-item
+			a
 				text-decoration: none
 				text-transform: uppercase
-				height: 4rem
-				line-height: 4rem
-				padding-right: 1rem
-				padding-left: 1rem
-				background-color: $main
-				display: block
-				transition: .3s ease-in-out
-				&:hover, &:active, &:focus
-					background-color: #ffffff
-					box-shadow: 0 2px 0 0 $main
-					color: $main
-				+media-breakpoint-up(xl)
-					padding-right: 1.875rem
-					padding-left: 1.875rem
+				color: #ffffff
+				line-height: 3rem
+	&.active
+		left: 0
+	+media-breakpoint-up(lg)
+		display: none
 
-	.search-toggle
-		outline: none
-		border: 0
-		padding: 0
-		margin: 0
-		width: 4rem
-		height: 4rem
-		background-color: $extra
-		cursor: pointer
-		font-size: 25px
+section.header-backdrop
+	position: absolute
+	background-color: #000000
+	opacity: .75
+	cursor: pointer
+	height: calc(100vh - 4rem)
+	width: calc(100vw - 20rem)
+	z-index: 1000
+	top: 4rem
+	right: -200rem
+	transition: .3s ease-in-out
+	&.active
+		right: 0
+	+media-breakpoint-up(lg)
+		display: none
+
+//Tools
+.tools
+	display: flex
+	align-items: center
+	justify-content: space-between
+	+media-breakpoint-up(lg)
+		justify-content: center
+	.phone
 		+flex-center()
-		transition: .3s ease-in-out
 		i, em
 			color: #ffffff
+			margin-right: .5rem
+			font-size: 1rem
+			+media-breakpoint-up(lg)
+				color: $main
+				font-size: 1.125rem
+		a
+			text-decoration: none
+			color: #ffffff
+			font-weight: 700
 			transition: .3s ease-in-out
-		&:hover, &:active, &:focus
-			background-color: #ffffff
-			box-shadow: 0 2px 0 0 $extra
+			font-size: 1rem
+			+media-breakpoint-up(lg)
+				font-size: 1.125rem
+				color: #333333
+				&:hover, &:focus, &:active
+					color: $extra
+
+	//Language
+	.language
+		transition: initial
+		+media-breakpoint-up(lg)
+			margin-left: 1.5rem
+		.dropdown
+			+flex-center()
+			box-shadow: inset 0 0 0 1px #ffffff
 			i, em
-				color: $extra
-
-	.search-wrapper
-		.desktop-search
-			position: absolute
-			z-index: -1
-			opacity: 0
-			bottom: 0
-			right: 0
-		&.active
-			.search-toggle
-				.mdi-magnify
+				color: #ffffff
+				margin-right: .15rem
+			+media-breakpoint-up(lg)
+				box-shadow: inset 0 0 0 1px #e1e1e1
+				i, em
+					color: $main
+			.dropdown-toggle
+				text-decoration: none
+				margin-left: .15rem
+				padding-left: 2rem
+				padding-right: 1rem
+				padding-top: .2rem
+				padding-bottom: .25rem
+				color: #ffffff
+				font-size: .875rem
+				font-weight: 700
+				position: relative
+				transition: .3s ease-in-out
+				&:before
+					position: absolute
+					content: "\F59F"
+					font-family: 'Material Design Icons'
+					font-weight: 400
+					color: #ffffff
+					left: .7rem
+					font-size: 1.125rem
+					top: 50%
+					transform: translateY(-50%)
+				&:after
+					display: none
+				+media-breakpoint-up(lg)
+					color: #999999
 					&:before
-						content: '\F156'
-			.desktop-search
-				z-index: 888
-				opacity: 1
-				bottom: -2.5rem
-
+						color: $main
+					&:hover
+						color: $main
+			.dropdown-menu
+				.dropdown-item
+					font-size: .875rem
+					+media-breakpoint-up(lg)
+						font-size: 1rem
+					&.active
+						background: $main
+						color: #ffffff
 
 //SEARCHBOX
 .searchbox
 	position: relative
-	width: 13rem
+	width: 100%
 	height: 2rem
 	.searchinput
-		width: 13rem
+		width: 100%
 		height: 2rem
 		outline: none
 		border: 0
@@ -156,17 +254,26 @@
 		width: 2rem
 		height: 2rem
 		line-height: 2rem
-		background-color: $main
+		background-color: transparent
 		text-align: center
 		outline: none
 		border: 0
 		cursor: pointer
 		transition: .3s ease-in-out
 		i, em
-			color: #ffffff
-			transition: .3s ease-in-out
-		&:hover, &:active, &:focus
-			background-color: #ffffff
-			box-shadow: inset 0 0 0 1px $main
+			color: $main
+
+	+media-breakpoint-up(lg)
+		width: 13rem
+		.searchinput
+			width: 13rem
+		.searchbutton
+			background-color: $main
 			i, em
-				color: $main
+				color: #ffffff
+				transition: .3s ease-in-out
+			&:hover, &:active, &:focus
+				background-color: #ffffff
+				box-shadow: inset 0 0 0 1px $main
+				i, em
+					color: $main

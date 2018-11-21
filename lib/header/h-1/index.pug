@@ -5,13 +5,17 @@ header.canhcam-header-1
 				.desktop-header
 					.header
 						.logo
-							img(src="./img/global/logo.png", alt="")
-						.partner1
-							img(src="./img/global/header-1.png", alt="")
-						.partner2
-							img(src="./img/global/header-2.png", alt="")
-						.partner3
-							img(src="./img/global/header-3.png", alt="")
+							a(href="javascript:void(0)")
+								img(src="./img/global/logo.png", alt="")
+						.partner
+							a(href="javascript:void(0)")
+								img(src="./img/global/header-1.png", alt="")
+						.partner
+							a(href="javascript:void(0)")
+								img(src="./img/global/header-2.png", alt="")
+						.partner
+							a(href="javascript:void(0)")
+								img(src="./img/global/header-3.png", alt="")
 						.tools
 							.phone
 								i.mdi.mdi-phone
@@ -23,6 +27,9 @@ header.canhcam-header-1
 									.dropdown-menu.dropdown-menu-right(aria-labelledby='dropdownMenuLink')
 										a.dropdown-item.active.ml-0(href='javascript:void(0)').text-center.text-capitalize VN
 										a.dropdown-item.ml-0(href='javascript:void(0)').text-center.text-capitalize EN
+						button.hamburger.hamburger--emphatic(type='button')
+							span.hamburger-box
+								span.hamburger-inner
 				.desktop-nav
 					.custom-nav
 						.custom-nav-item
@@ -49,3 +56,10 @@ header.canhcam-header-1
 								input(type="text").searchinput
 								button.searchbutton
 									i.mdi.mdi-magnify
+
+section.sidemenu-header
+	.container
+		.row
+			.col
+				.sidemenu-header-mapping
+section.header-backdrop
