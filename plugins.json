@@ -22,7 +22,6 @@
 		"bower_components/offline/offline.min.js",
 		"bower_components/fancybox/dist/jquery.fancybox.min.js",
 		"bower_components/owl.carousel/dist/owl.carousel.min.js",
-		"bower_components/swiper/dist/js/swiper.min.js",
-		"bower_components/font-awesome/svg-with-js/js/fontawesome-all.min.js"
+		"bower_components/swiper/dist/js/swiper.min.js"
 	]
 }
