@@ -1,0 +1,42 @@
+{
+	"name": "gulp-basic",
+	"version": "1.0.0",
+	"description": "basic build tool",
+	"main": "gulpfile.babel.js",
+	"homepage": "https://github.com/sonvh2510/001.Gulp4-Basic",
+	"scripts": {
+		"test": "test",
+		"start": "gulp",
+		"update": "npm i && bower update"
+	},
+	"repository": {
+		"type": "git",
+		"url": "N/A"
+	},
+	"author": "sonvh2510",
+	"license": "ISC",
+	"devDependencies": {
+		"@babel/core": "^7.1.6",
+		"@babel/preset-env": "^7.1.6",
+		"@babel/register": "^7.0.0",
+		"browser-sync": "^2.26.3",
+		"node-sass": "^4.10.0",
+		"del": "^3.0.0",
+		"fs": "0.0.1-security",
+		"gulp": "^4.0.0",
+		"gulp-autoprefixer": "^6.0.0",
+		"gulp-babel": "^8.0.0",
+		"gulp-clean-css": "^3.10.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-imagemin": "^5.0.3",
+		"gulp-pug": "^4.0.1",
+		"gulp-rename": "^1.4.0",
+		"gulp-sass": "^4.0.2",
+		"gulp-sourcemaps": "^2.6.4",
+		"gulp-uglify-es": "^1.0.4",
+		"gulp-watch": "^5.0.1"
+	},
+	"dependencies": {
+		"gsap": "^2.0.2"
+	}
+}
