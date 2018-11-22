@@ -39,24 +39,35 @@ const theHuyApp = {
 		} else {
 			theHuyApp.toggle(el, a);
 		}
+	}, 
+	each: (s, f) => {
+		let es = theHuyApp.selectAll(s);
+		Array.prototype.forEach.call(es, f);
+	},
+	backToTop: () => {
+		window.scrollTo({
+			behavior: 'smooth',
+			left: 0,
+			top: 0
+		});
 	}
 }
 
 theHuyApp.ready(() => {
-	if (window.matchMedia("(min-width: 992px)").matches) {
-		/* The viewport is greater than, or equal to, 992 pixels wide */
+	//Toggle searchbox
+	theHuyApp.avoidNull(desktop_searchToggle);
+	theHuyApp.avoidNull(mobile_headerSidemenuToggle);
 
-		//Toggle desktop searchbox
-		theHuyApp.avoidNull(desktop_searchToggle);
-	} else {
-		/* The viewport is less than 992 pixels wide */
-
-		theHuyApp.avoidNull(mobile_headerSidemenuToggle);
-	}
-
+	//Header mapping
 	theHuyApp.avoidNull(toolsMapping);
 	theHuyApp.avoidNull(customNavMapping);
 	theHuyApp.avoidNull(searchBoxMapping);
+
+	//Footer mapping
+	theHuyApp.avoidNull(footerNavAndInfoSwitch);
+
+	//Back to top button
+	theHuyApp.avoidNull(clickBackToTop);
 })
 
 const desktop_searchToggle = () => {
@@ -110,4 +121,21 @@ const searchBoxMapping = () => {
 		desktopMethod: 'appendTo',
 		breakpoint: 992
 	}).watch();
+}
+
+const footerNavAndInfoSwitch = () => {
+	return new MappingListener({
+		selector: '.footer-info-wrapper',
+		mobileWrapper: '.footer-nav-wrapper',
+		mobileMethod: 'insertBefore',
+		desktopWrapper: '.footer-nav-wrapper',
+		desktopMethod: 'insertAfter',
+		breakpoint: 992
+	}).watch();
+}
+
+const clickBackToTop = () => {
+	theHuyApp.select('.backtotop').onclick = () => {
+		theHuyApp.backToTop()
+	}
 }

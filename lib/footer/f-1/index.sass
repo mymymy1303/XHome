@@ -1,0 +1,328 @@
+.canhcam-footer-1
+	.footer-tools
+		+media-breakpoint-down(md)
+			padding: 3rem 0 3rem 0
+			background-image: url('../img/global/footer-1.png')
+
+	/////////////////////LAYOUTING/////////////////////
+	.footer-nav-wrapper
+		position: relative
+		z-index: 111
+
+	.footer-info-wrapper
+		position: relative
+		z-index: 111
+
+	.footer-form-wrapper
+		position: relative
+		z-index: 111
+
+
+	////////////////////STYLING///////////////////////
+	//FOOTER NAV
+	.footer-nav
+		display: flex
+		justify-content: space-between
+		flex-direction: column
+		+media-breakpoint-up(md)
+			flex-direction: row
+		+media-breakpoint-up(lg)
+			padding-top: 2.5rem
+			padding-bottom: 2.5rem
+			padding-right: .9375rem
+			box-shadow: inset 0 -1px 0 0 #525252
+		//FOOTER BLOCK
+		.block
+			+media-breakpoint-down(sm)
+				margin-top: 1.5rem
+				&:first-child
+					margin-top: 0
+			.title
+				a
+					text-decoration: none
+					h1, h2, h3, h4, h5, h6
+						color: $main
+						text-transform: uppercase
+						font-size: 1rem
+						font-weight: 600
+						line-height: 1.5rem
+						margin-bottom: .75rem
+						+media-breakpoint-up(md)
+							margin-bottom: .5rem
+							font-size: 1.125rem
+			.links
+				.link
+					+media-breakpoint-down(md)
+						margin-top: .5rem
+					a
+						text-decoration: none
+						color: #ffffff
+						text-transform: uppercase
+						font-size: .875rem
+						line-height: 1.5rem
+
+	//FOOTER INFO
+	.footer-info
+		display: flex
+		justify-content: space-between
+		flex-direction: column
+		+media-breakpoint-down(md)
+			margin-bottom: 2rem
+		+media-breakpoint-up(md)
+			flex-direction: row
+		+media-breakpoint-up(lg)
+			padding-top: 2.5rem
+			padding-right: .9375rem
+		.footer-media
+			+media-breakpoint-down(md)
+				margin-bottom: 1rem
+			// .footer-logo
+			// 	a
+			// 		img
+			// 			filter: brightness(0) invert(1)
+			// 		&:active, &:focus
+			// 			img
+			// 				filter: brightness(1) invert(0)
+			// 		+media-breakpoint-up(lg)
+			// 			img
+			// 				transition: .3s ease-in-out
+			// 			&:hover
+			// 				img
+			// 					filter: brightness(1) invert(0)
+			.footer-social
+				display: flex
+				width: 10.625rem
+				justify-content: space-between
+				margin-top: .625rem
+				a
+					width: 1.875rem
+					height: 1.875rem
+					line-height: 1.875rem
+					text-align: center
+					background-color: #222222
+					i, em
+						font-size: .9375rem
+						color: #666666
+					&:active, &:focus
+						background-color: #ffffff
+						i, em
+							color: $main
+					+media-breakpoint-up(lg)
+						transition: .3s ease-in-out
+						i, em
+							transition: .3s ease-in-out
+						&:hover
+							background-color: #ffffff
+							i, em
+								color: $main
+
+		.footer-contact
+			.title
+				color: #ffffff
+				margin-bottom: .5rem
+				h1, h2, h3, h4, h5, h6
+					font-size: 1rem
+					font-weight: 500
+					text-transform: uppercase
+					line-height: 1.5rem
+					+media-breakpoint-up(xl)
+						font-size: 1.125rem
+			.item
+				+flex-center()
+				justify-content: flex-start
+				i, em
+					color: #c4c4c4
+					margin-right: .5rem
+					font-size: .875rem
+				a
+					font-size: .875rem
+					color: #c4c4c4
+					text-transform: uppercase
+					line-height: 1.5rem
+					text-decoration: none
+					&:active, &:focus
+						color: $extra
+					+media-breakpoint-up(lg)
+						transition: .3s ease-in-out
+						&:hover
+							color: $extra
+	//FOOTER FORM
+	.footer-form
+		+media-breakpoint-down(md)
+			margin-top: 3rem
+			padding: 1rem
+			padding-bottom: 0.5rem
+			position: relative
+			background-color: rgba(76, 76, 77, .3)
+		+media-breakpoint-up(lg)
+			padding-top: 2.75rem
+			padding-left: .9375rem
+			padding-bottom: 4.375rem
+		.title
+			h1, h2, h3, h4, h5, h6
+				color: $main
+				text-transform: uppercase
+				font-size: 1rem
+				font-weight: 600
+				line-height: 1.5rem
+				margin-bottom: .5rem
+				+media-breakpoint-up(lg)
+					font-size: 1.125rem
+		.wrap-form
+			.form-group
+				input[type="text"]
+					outline: none
+					border: 0
+					height: 2rem
+					padding-bottom: .5rem
+					font-size: 1rem
+					background-color: transparent
+					box-shadow: inset 0 -1px 0 0 #585858
+					width: 100%
+					color: #ffffff
+					font-weight: 400
+					+media-breakpoint-up(lg)
+						font-size: 1.125rem
+				textarea
+					outline: none
+					border: 0
+					font-size: 1rem
+					background-color: transparent
+					box-shadow: inset 0 -1px 0 0 #585858
+					width: 100%
+					color: #ffffff
+					font-weight: 400
+					resize: none
+				input[type="text"], textarea
+					&::-webkit-input-placeholder 
+						text-transform: uppercase
+						color: #585858
+						font-size: .875rem
+
+					&::-moz-placeholder 
+						text-transform: uppercase
+						color: #585858
+						font-size: .875rem
+
+					&:-ms-input-placeholder
+						text-transform: uppercase
+						color: #585858
+						font-size: .875rem
+
+					&:-moz-placeholder 
+						text-transform: uppercase
+						color: #585858
+						font-size: .875rem
+				input[type="reset"]
+					display: none
+				.frm-btn
+					width: 5rem
+					position: relative
+					&:before
+						position: absolute
+						z-index: 2
+						content: '\F1EE'
+						width: 3rem
+						height: 2.8125rem
+						line-height: 2.8125rem
+						text-align: center
+						top: 0
+						right: -3rem
+						font-family: 'Material Design Icons'
+						font-weight: 400
+						font-size: 1.25rem
+						color: $extra
+						background-color: #1f1f1f
+					&:after
+						position: absolute
+						z-index: 1
+						content: ''
+						width: 3rem
+						height: 2.8125rem
+						line-height: 2.8125rem
+						top: 0
+						right: -2.6rem
+						background-color: #1f1f1f
+						transform: skew(15deg)
+					input[type="submit"]
+						outline: none
+						cursor: pointer
+						border: 0
+						width: 5rem
+						height: 2.8125rem
+						background-color: #282828
+						color: #ffffff
+						text-transform: uppercase
+
+
+	//FOOTER NAV & FORM BACKGROUND
+	.footer-nav-bg
+		height: 100%
+		position: absolute
+		z-index: 1
+		right: 0
+		display: none
+		+media-breakpoint-up(lg)
+			display: block
+			width: calc((100vw - 960px)/2 + 640px)
+		+media-breakpoint-up(xl)
+			width: calc((100vw - 1140px)/2 + 760px)
+	.footer-form-bg
+		height: 100%
+		position: absolute
+		z-index: 1
+		left: 0
+		background-position: center right !important
+		display: none
+		+media-breakpoint-up(lg)
+			display: block
+			width: calc((100vw - 960px)/2 + 320px)
+		+media-breakpoint-up(xl)
+			width: calc((100vw - 1140px)/2 + 380px)
+
+	.footer-copyright
+		text-align: center
+		height: 3.125rem
+		width: 100%
+		background-color: #1f1f1f
+		text-transform: uppercase
+		font-size: rem(13px)
+		line-height: 3.125rem
+		+media-breakpoint-up(lg)
+			position: relative
+			z-index: 1
+			a.backtotop
+				position: absolute
+				content: ''
+				height: 3.125rem
+				width: 3.125rem
+				z-index: -1
+				background-color: #1f1f1f
+				bottom: 0
+				left: 66.66667%
+				text-align: left
+				transform: translate(-50%, -50%) rotate(45deg)
+				> div
+					color: $main
+					font-size: rem(25px)
+					transform: rotate(45deg)
+		span
+			color: rgba(255, 255, 255, 0.5)
+		a
+			color: rgba(255, 255, 255, 0.5)
+			text-decoration: none
+			&:active, &:focus
+				color: $extra
+			+media-breakpoint-up(lg)
+				transition: .3s ease-in-out
+				&:hover
+					color: $extra
+		+media-breakpoint-down(md)
+			height: auto
+			padding-top: 1rem
+			padding-bottom: 1rem
+			line-height: 1.125rem
+			span
+				&:last-child
+					display: block
+					margin-top: .25rem
