@@ -5,7 +5,7 @@
 		padding-top: .75rem
 		padding-bottom: .75rem
 		background-color: #ffffff
-		top: 0
+		top: -1px
 		left: 0
 		z-index: 999
 		box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1)
@@ -29,6 +29,12 @@
 		left: 0
 		z-index: 999
 		box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1)
+		&.collapse
+			top: rem(-114px)
+			img
+				opacity: 0
+			.desktop-nav
+				box-shadow: 0px 11px 63px 0px rgba(0,0,0,0.5)
 		.header
 			+flex-center()
 			justify-content: space-between
@@ -116,7 +122,7 @@ section.sidemenu-header
 	width: 20rem
 	height: calc(100vh - 4rem)
 	top: 4rem
-	left: -20rem
+	right: -20rem
 	padding-top: 1rem
 	padding-bottom: 1rem
 	overflow-y: auto
@@ -132,12 +138,12 @@ section.sidemenu-header
 				color: #ffffff
 				line-height: 3rem
 	&.active
-		left: 0
+		right: 0
 	+media-breakpoint-up(lg)
 		display: none
 
 section.header-backdrop
-	position: absolute
+	position: fixed
 	background-color: #000000
 	opacity: .75
 	cursor: pointer
@@ -145,10 +151,10 @@ section.header-backdrop
 	width: calc(100vw - 20rem)
 	z-index: 1000
 	top: 4rem
-	right: -200rem
+	left: -200rem
 	transition: .3s ease-in-out
 	&.active
-		right: 0
+		left: 0
 	+media-breakpoint-up(lg)
 		display: none
 

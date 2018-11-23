@@ -40,3 +40,23 @@
 	display: flex
 	justify-content: center
 	align-items: center
+
+=block-overlay()
+	background: -moz-linear-gradient(90deg, rgba(0,0,0,.8) 0%, rgba(255,255,255,0.0) 100%)
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255,255,255,0.0)), color-stop(100%, rgba(0,0,0,.8)))
+	background: -webkit-linear-gradient(90deg, rgba(0,0,0,.8) 0%, rgba(255,255,255,0.0) 100%)
+	background: -o-linear-gradient(90deg, rgba(0,0,0,.8) 0%, rgba(255,255,255,0.0) 100%)
+	background: -ms-linear-gradient(90deg, rgba(0,0,0,.8) 0%, rgba(255,255,255,0.0) 100%)
+	background: linear-gradient(0deg, rgba(0,0,0,.8) 0%, rgba(255,255,255,0.0) 100%)
+
+=nth-flex($gutter)
+	.nth-row
+		display: flex
+		flex-wrap: wrap
+	[class^="nth-col"]
+		margin-right: $gutter
+		&:last-of-type
+			margin-right: 0
+
+	.nth-col
+		flex: 1

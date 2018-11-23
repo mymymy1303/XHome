@@ -1,4 +1,5 @@
 const theHuyApp = {
+	currentScrollY: 0,
 	ready: (fn) => {
 		if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
 			fn();
@@ -16,6 +17,18 @@ const theHuyApp = {
 		try {
 			f()
 		} catch (error) { }
+	},
+	addClass: (el, className) => {
+		if (el.classList)
+			el.classList.add(className);
+		else
+			el.className += ' ' + className;
+	},
+	removeClass: (el, className) => {
+		if (el.classList)
+			el.classList.remove(className);
+		else
+			el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
 	},
 	toggle: (el, className) => {
 		let s = theHuyApp.select(el);
@@ -39,7 +52,7 @@ const theHuyApp = {
 		} else {
 			theHuyApp.toggle(el, a);
 		}
-	}, 
+	},
 	each: (s, f) => {
 		let es = theHuyApp.selectAll(s);
 		Array.prototype.forEach.call(es, f);
@@ -50,6 +63,58 @@ const theHuyApp = {
 			left: 0,
 			top: 0
 		});
+	},
+	smoothWheel: (target, speed, smooth) => {
+		if (target == document)
+			target = (document.documentElement || document.body.parentNode || document.body) // cross browser support for document scrolling
+		var moving = false
+		var pos = target.scrollTop
+		target.addEventListener('mousewheel', scrolled, false)
+		target.addEventListener('DOMMouseScroll', scrolled, false)
+
+		function scrolled(e) {
+			e.preventDefault(); // disable default scrolling
+
+			var delta = normalizeWheelDelta(e)
+
+			pos += -delta * speed
+			pos = Math.max(0, Math.min(pos, target.scrollHeight - target.clientHeight)) // limit scrolling
+
+			if (!moving) update()
+		}
+
+		function normalizeWheelDelta(e) {
+			if (e.detail) {
+				if (e.wheelDelta)
+					return e.wheelDelta / e.detail / 40 * (e.detail > 0 ? 1 : -1) // Opera
+				else
+					return -e.detail / 3 // Firefox
+			} else
+				return e.wheelDelta / 120 // IE,Safari,Chrome
+		}
+
+		function update() {
+			moving = true
+			var delta = (pos - target.scrollTop) / smooth
+			target.scrollTop += delta
+			if (Math.abs(delta) > 0.5)
+				requestFrame(update)
+			else
+				moving = false
+		}
+
+		var requestFrame = function () { // requestAnimationFrame cross browser
+			return (
+				window.requestAnimationFrame ||
+				window.webkitRequestAnimationFrame ||
+				window.mozRequestAnimationFrame ||
+				window.oRequestAnimationFrame ||
+				window.msRequestAnimationFrame ||
+				function (func) {
+					window.setTimeout(func, 1000 / 50);
+				}
+			);
+		}()
 	}
 }
 
@@ -68,6 +133,12 @@ theHuyApp.ready(() => {
 
 	//Back to top button
 	theHuyApp.avoidNull(clickBackToTop);
+
+	//Home Banner Slider
+	theHuyApp.avoidNull(homeBannerInit);
+
+	//Header collapse on scroll listener
+	theHuyApp.avoidNull(collapseHeaderListener);
 })
 
 const desktop_searchToggle = () => {
@@ -138,4 +209,30 @@ const clickBackToTop = () => {
 	theHuyApp.select('.backtotop').onclick = () => {
 		theHuyApp.backToTop()
 	}
+}
+
+const homeBannerInit = () => {
+	return tns({
+		container: '.banner-home-wrapper',
+		items: 1,
+		slideBy: 'page',
+		autoplay: true,
+		autoplayButtonOutput: false,
+		controls: false,
+		nav: false
+	});
+}
+
+const collapseHeaderListener = () => {
+	window.addEventListener('scroll', function (e) {
+		theHuyApp.currentScrollY = window.scrollY;
+		if (theHuyApp.currentScrollY <= 80) {
+			window.requestAnimationFrame(function () {
+				theHuyApp.removeClass(theHuyApp.select('.canhcam-header-1'), 'collapse')
+			});
+		} else {
+			theHuyApp.addClass(theHuyApp.select('.canhcam-header-1'), 'collapse')
+		}
+
+	});
 }

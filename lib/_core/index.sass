@@ -9,7 +9,7 @@ html, body
 	font-family: 'Source Sans Pro', sans-serif
 	overflow-x: hidden
 	main
-		min-height: 500px
+		min-height: 1000px
 
 //Hamburger menu
 .hamburger
@@ -103,3 +103,33 @@ html, body
 			top: -80px
 			transform: translate3d(-80px, 80px, 0) rotate(-45deg)
 			transition: right 0.125s ease-out, top 0.05s 0.125s linear, transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1)
+
+//Tagline
+.tagline
+	.title
+		h1, h2, h3, h4, h5, h6
+			font-size: 1.25rem
+			text-transform: uppercase
+			text-align: center
+			color: $main
+			font-weight: 400
+			margin-bottom: .1rem
+			+media-breakpoint-up(md)
+				font-size: 1.75rem
+			+media-breakpoint-up(lg)
+				font-size: 2.5rem
+	.description
+		p
+			font-size: .9375rem
+			font-weight: 400
+			color: #999999
+			text-align: center
+			+media-breakpoint-up(sm)
+				max-width: 70%
+				margin-left: auto
+				margin-right: auto
+			+media-breakpoint-up(md)
+				font-size: 1rem
+			+media-breakpoint-up(lg)
+				font-size: 1.125rem
+				max-width: 60%
