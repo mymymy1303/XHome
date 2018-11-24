@@ -133,3 +133,70 @@ html, body
 			+media-breakpoint-up(lg)
 				font-size: 1.125rem
 				max-width: 60%
+
+//Viewmore button
+.nth-viewmore
+	display: flex
+	justify-content: center
+	align-items: center
+	position: relative
+	width: 8.125rem
+	height: 2.8125rem
+	outline: none
+	border: 0
+	text-decoration: none
+	background-color: $main
+	color: #ffffff
+	font-size: .9375rem
+	text-transform: uppercase
+	&:before
+		position: absolute
+		z-index: 2
+		content: "\F054"
+		width: 2.8125rem
+		height: 2.8125rem
+		line-height: 2.8125rem
+		text-align: center
+		top: 0
+		right: -2.8125rem
+		font-family: 'Material Design Icons'
+		font-weight: 400
+		font-size: 1.25rem
+		color: #ffffff
+		background-color: $extra
+	&:after
+		position: absolute
+		z-index: 1
+		content: ''
+		width: 2.8125rem
+		height: 2.8125rem
+		line-height: 2.8125rem
+		top: 0
+		right: -2.4rem
+		background-color: $extra
+		transform: skew(15deg)
+
+	transition: all .3s cubic-bezier(1,.16,0,.83)
+	&:before, &:after
+		transition: all .3s cubic-bezier(1,.16,0,.83)
+	&:active, &:focus
+		background-color: transparent
+		color: #ffffff
+		&:before
+			width: 8.125rem
+			right: 0
+			background-color: transparent
+		&:after
+			width: 8.125rem
+			right: 0
+	+media-breakpoint-up(lg)
+		&:hover
+			background-color: transparent
+			color: #ffffff
+			&:before
+				width: 8.125rem
+				right: 0
+				background-color: transparent
+			&:after
+				width: 8.125rem
+				right: 0

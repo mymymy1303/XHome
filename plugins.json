@@ -7,7 +7,8 @@
 		"bower_components/mdi/css/materialdesignicons.min.css",
 		"bower_components/offline/themes/offline-theme-default.css",
 		"bower_components/offline/themes/offline-language-english.css",
-		"bower_components/tiny-slider/dist/tiny-slider.css"
+		"bower_components/tiny-slider/dist/tiny-slider.css",
+		"bower_components/aos/dist/aos.css"
 	],
 	"scripts":[
 		"bower_components/jquery/dist/jquery.min.js",
@@ -17,6 +18,7 @@
 		"bower_components/bootstrap/dist/js/bootstrap.bundle.min.js",
 		"bower_components/offline/offline.min.js",
 		"bower_components/fancybox/dist/jquery.fancybox.min.js",
-		"bower_components/tiny-slider/dist/min/tiny-slider.js"
+		"bower_components/tiny-slider/dist/min/tiny-slider.js",
+		"bower_components/aos/dist/aos.js"
 	]
 }

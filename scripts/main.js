@@ -119,6 +119,10 @@ const theHuyApp = {
 }
 
 theHuyApp.ready(() => {
+	//Initialize AOS plugin
+	theHuyApp.avoidNull(aosInit);
+	theHuyApp.avoidNull(aosRefreshAfterLoad);
+
 	//Toggle searchbox
 	theHuyApp.avoidNull(desktop_searchToggle);
 	theHuyApp.avoidNull(mobile_headerSidemenuToggle);
@@ -234,5 +238,15 @@ const collapseHeaderListener = () => {
 			theHuyApp.addClass(theHuyApp.select('.canhcam-header-1'), 'collapse')
 		}
 
+	});
+}
+
+const aosInit = () => {
+	AOS.init();
+}
+
+const aosRefreshAfterLoad = () => {
+	window.addEventListener('load', function () {
+		AOS.refresh();
 	});
 }

@@ -13,7 +13,9 @@ section.home-3
 		.nth-col
 			flex: auto
 			margin-right: 0
-			margin-top: 1rem
+			margin-top: 2rem
+			&:first-child
+				margin-top: 1rem
 	+media-breakpoint-up(md)
 		.nth-row
 			margin-bottom: rem(10px)
@@ -22,9 +24,10 @@ section.home-3
 	.projects
 		padding: 1.25rem 0
 		+media-breakpoint-up(md)
-			font-size: 1.75rem 0
+			padding: 1.75rem 0
 		+media-breakpoint-up(lg)
-			font-size: 2.5rem 0
+			padding: 2.5rem 0
+			padding-top: 1.5rem
 
 
 
@@ -92,3 +95,10 @@ section.home-3
 					z-index: 5
 					bottom: -1px
 					+block-overlay()
+
+	.viewmore-wrapper
+		width: 100%
+		height: auto
+		+flex-center()
+		.nth-viewmore
+			margin-left: rem(-45px)
