@@ -1,0 +1,124 @@
+section.gioithieu-4
+	padding: 2rem 0
+	+media-breakpoint-up(lg)
+		padding: 4rem 0
+	.tagline
+		.title
+			margin-bottom: 0
+
+	a
+		text-decoration: none
+	.slider-wrapper
+		margin-top: 1rem
+		.about-slider
+			.item
+				figure
+					padding-bottom: 10px
+					background-color: transparent
+					+media-breakpoint-up(lg)
+						width: fit-content
+						margin-left: auto
+						margin-right: auto
+					.box-zoom
+						img
+							max-width: 100%
+							height: auto
+					figcaption
+						background-color: #ffffff
+						display: flex
+						flex-direction: column
+						justify-content: center
+						padding: 1rem
+						box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2)
+						+media-breakpoint-up(md)
+							flex-direction: row
+							justify-content: flex-start
+							align-items: flex-start
+							padding: 1.875rem
+						+media-breakpoint-up(xl)
+							box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2)
+						.title
+							+media-breakpoint-up(md)
+								flex: 0 0 30%
+								max-width: 30%
+							h1, h2, h3, h4, h5, h6
+								font-size: 1.25rem
+								font-weight: 700
+								color: #333333
+								text-transform: uppercase
+								line-height: 1.5rem
+						.description
+							+media-breakpoint-up(md)
+								flex: 0 0 70%
+								max-width: 70%
+							margin-top: .5rem
+							+media-breakpoint-up(md)
+								margin-top: 0
+							p
+								position: relative
+								font-size: .85rem
+								padding-left: 1.25rem
+								font-weight: 400
+								line-height: 1.5rem
+								color: #666666
+								text-transform: uppercase
+								+media-breakpoint-up(md)
+									font-size: 1rem
+								&:first-child
+									&:before
+										position: absolute
+										content: "\F2DC"
+										font-family: "Material Design Icons"
+										font-size: .875rem
+										font-weight: 400
+										color: #999999
+										top: 0
+										left: 0
+								&:last-child
+									&:before
+										position: absolute
+										content: "\F3F2"
+										font-family: "Material Design Icons"
+										font-size: .875rem
+										font-weight: 400
+										color: #999999
+										top: 0
+										left: 0
+
+		.tns-controls
+			display: flex
+			justify-content: space-between
+			button
+				width: rem(80px)
+				height: rem(80px)
+				border-radius: 50%
+				display: flex
+				justify-content: center
+				align-items: center
+				outline: none
+				border: 0
+				background-color: transparent
+				position: absolute
+				top: 50%
+				transform: translateY(-50%)
+				z-index: 1
+				left: 0
+				transition: .3s ease-in-out
+				&:last-child
+					left: initial
+					right: 0
+				+media-breakpoint-down(sm)
+					width: rem(50px)
+					height: rem(50px)
+				span
+					font-size: 2.5rem
+					color: #b5b5b5
+					transition: .3s ease-in-out
+					+media-breakpoint-down(sm)
+						font-size: 1.5rem
+						color: #ffffff
+				+media-breakpoint-up(lg)
+					&:hover
+						background-color: #b5b5b5
+						span
+							color: #ffffff

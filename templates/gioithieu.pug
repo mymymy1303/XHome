@@ -1,0 +1,17 @@
+extends _layout/_layout.pug
+
+block var
+	- title = 'Demo - Giới thiệu'
+	- bodyClass = 'about-page'
+
+block header
+	include ../lib/header/h-1/index.pug
+block main
+	include ../lib/banner/b-1/index.pug
+	include ../lib/breadcrumb/b-1/index.pug
+	include ../lib/gioithieu/g-1/index.pug
+	include ../lib/gioithieu/g-2/index.pug
+	include ../lib/gioithieu/g-3/index.pug
+	include ../lib/gioithieu/g-4/index.pug
+block footer
+	include ../lib/footer/f-1/index.pug

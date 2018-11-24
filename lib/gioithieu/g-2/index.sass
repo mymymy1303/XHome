@@ -1,0 +1,95 @@
+section.gioithieu-2
+	padding: 2rem 0
+	position: relative
+	+media-breakpoint-up(lg)
+		padding-bottom: 6rem
+		padding-top: 2rem
+	.bg-desktop
+		position: absolute
+		height: 100%
+		width: 100%
+		top: 0
+		left: 0
+		+media-breakpoint-down(md)
+			display: none
+	.bg-mobile
+		position: absolute
+		height: 100%
+		width: 100%
+		top: 0
+		left: 0
+		+media-breakpoint-up(lg)
+			display: none
+	.video
+		a
+			figure
+				position: relative
+				overflow: hidden
+				.box-zoom
+					img
+						max-width: 100%
+						height: auto
+				.overlay
+					position: absolute
+					width: 100%
+					height: 100%
+					top: 0
+					left: 0
+					background-color: rgba(0, 0, 0, .3)
+					+flex-center()
+	
+	.price
+		display: flex
+		flex-direction: column
+		margin-top: 2rem
+		+media-breakpoint-up(lg)
+			margin-top: 4rem
+			flex-direction: row
+			justify-content: space-between
+			align-items: flex-start
+		.title
+			margin-bottom: .5rem
+			h1, h2, h3, h4, h5, h6
+				font-size: 1.25rem
+				text-transform: uppercase
+				text-align: left
+				color: $main
+				font-weight: 400
+				+media-breakpoint-up(md)
+					font-size: 1.75rem
+				+media-breakpoint-up(lg)
+					font-size: 2.5rem
+					line-height: 2.5rem
+		.content
+			+media-breakpoint-up(lg)
+				max-width: 60%
+				flex: 0 0 60%
+			ul
+				list-style: none
+				margin: 0
+				padding: 0
+				font-size: 0
+				li
+					margin-bottom: .75rem
+					+media-breakpoint-up(lg)
+						margin-bottom: 1.5rem
+					&:last-child
+						margin-bottom: 0
+					p
+						padding-left: 1.25rem
+						font-size: .9375rem
+						font-weight: 400
+						color: #333333
+						line-height: rem(22px)
+						position: relative
+						text-align: justify
+						&:before
+							position: absolute
+							top: .1rem
+							left: 0
+							content: "\F537"
+							font-size: .625rem
+							color: $main
+							font-family: 'Material Design Icons'
+						+media-breakpoint-up(lg)
+							text-align: left

@@ -176,27 +176,11 @@ html, body
 		background-color: $extra
 		transform: skew(15deg)
 
-	transition: all .3s cubic-bezier(1,.16,0,.83)
-	&:before, &:after
-		transition: all .3s cubic-bezier(1,.16,0,.83)
+	transition: all .3s ease-in-out
 	&:active, &:focus
-		background-color: transparent
+		background-color: $extra
 		color: #ffffff
-		&:before
-			width: 8.125rem
-			right: 0
-			background-color: transparent
-		&:after
-			width: 8.125rem
-			right: 0
 	+media-breakpoint-up(lg)
 		&:hover
-			background-color: transparent
+			background-color: $extra
 			color: #ffffff
-			&:before
-				width: 8.125rem
-				right: 0
-				background-color: transparent
-			&:after
-				width: 8.125rem
-				right: 0
