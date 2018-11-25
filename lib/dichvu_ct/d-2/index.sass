@@ -1,0 +1,105 @@
+section.dichvuct-2
+	padding-bottom: 2rem
+	+media-breakpoint-up(lg)
+		padding-bottom: 4rem
+
+	a
+		text-decoration: none
+	.tabs-wrapper
+		display: flex
+		flex-direction: column
+		+media-breakpoint-up(md)
+			flex-direction: row
+			align-items: flex-start
+	.tab-headers-wrapper
+		width: 100%
+		overflow-x: scroll
+		position: relative
+		height: auto
+		+media-breakpoint-up(md)
+			overflow-x: hidden
+			width: auto
+			flex: 0 0 rem(290px)
+		.tab-headers-mapping
+			display: flex
+			width: max-content
+			+media-breakpoint-up(md)
+				flex-direction: column
+			.tab-header
+				display: flex
+				align-items: center
+				justify-content: center
+				box-shadow: inset 0 0 0 1px #ebebeb
+				background-color: #ffffff
+				width: rem(290px)
+				min-height: rem(50px)
+				padding: 1rem 1rem
+				.icon
+					margin-right: 1rem
+				.content
+					.counter
+						p
+							font-size: .9375rem
+							font-weight: 700
+							line-height: 1.5rem
+							color: #999999
+					.title
+						h1, h2, h3, h4, h5, h6
+							font-size: 1.125rem
+							font-weight: 400
+							line-height: 1.5rem
+							color: #333333
+							text-transform: capitalize
+				&.active
+					background-color: $main
+					box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3)
+					.icon
+						img
+							filter: brightness(0) invert(1)
+					.content
+						.counter
+							p
+								color: #ffffff
+						.title
+							h1, h2, h3, h4, h5, h6
+								color: #ffffff
+				+media-breakpoint-up(lg)
+					transition: .3s ease-in-out
+					.icon
+						img
+							transition: .3s ease-in-out
+					.content
+						.counter
+							p
+								transition: .3s ease-in-out
+						.title
+							h1, h2, h3, h4, h5, h6
+								transition: .3s ease-in-out
+					&:hover
+						background-color: $main
+						box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3)
+						.icon
+							img
+								filter: brightness(0) invert(1)
+						.content
+							.counter
+								p
+									color: #ffffff
+							.title
+								h1, h2, h3, h4, h5, h6
+									color: #ffffff
+
+	.tab-contents-wrapper
+		flex: 0 0 calc(100% - 290px)
+		.tab-contents-mapping
+			position: relative
+			.tab-content
+				position: absolute
+				a
+					img
+						max-width: 100%
+						height: auto
+				opacity: 0
+				transition: .3s ease-in-out
+				&.active
+					opacity: 1

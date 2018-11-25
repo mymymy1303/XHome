@@ -1,0 +1,184 @@
+section.duanct-1
+	padding: 2rem 0
+	+media-breakpoint-up(lg)
+		padding: 4rem 0
+	
+	.tagline
+		.title
+			h1, h2, h3, h4, h5, h6
+				text-align: left
+				margin-bottom: 0
+
+	.info
+		margin-top: 1rem
+		margin-bottom: 2rem
+		ul
+			margin: 0
+			padding: 0
+			font-size: 0
+			display: flex
+			align-items: center
+			justify-content: space-between
+			width: 100%
+			overflow-x: auto
+			li
+				position: relative
+				padding-left: 1.75rem
+				margin-right: 2rem
+				+media-breakpoint-up(lg)
+					margin-right: 0
+				&:nth-child(1)
+					&:before
+						position: absolute
+						content: "\F009"
+						font-family: "Material Design Icons"
+						font-size: 1.25rem
+						color: #c74854
+						top: 0
+						left: 0
+						line-height: 1.5rem
+				&:nth-child(2)
+					&:before
+						position: absolute
+						content: "\F34E"
+						font-family: "Material Design Icons"
+						font-size: 1.25rem
+						color: #c74854
+						top: 0
+						left: 0
+						line-height: 1.5rem
+				&:nth-child(3)
+					&:before
+						position: absolute
+						content: "\F04C"
+						font-family: "Material Design Icons"
+						font-size: 1.25rem
+						color: #c74854
+						top: 0
+						left: 0
+						line-height: 1.5rem
+				&:nth-child(4)
+					&:before
+						position: absolute
+						content: "\F1D7"
+						font-family: "Material Design Icons"
+						font-size: 1.25rem
+						color: #c74854
+						top: 0
+						left: 0
+						line-height: 1.5rem
+				&:nth-child(5)
+					&:before
+						position: absolute
+						content: "\F117"
+						font-family: "Material Design Icons"
+						font-size: 1.25rem
+						color: #c74854
+						top: 0
+						left: 0
+						line-height: 1.5rem
+				p
+					font-size: 1.125rem
+					font-weight: 400
+					line-height: 1.5rem
+					color: #333333
+					white-space: nowrap
+					opacity: .8
+					+media-breakpoint-up(lg)
+						font-size: .85rem
+					+media-breakpoint-up(xl)
+						font-size: 1.125rem
+
+	.slider-wrapper
+		.project-detail-slider
+			.item
+				figure
+					.box-zoom
+						a
+							img
+								max-width: 100%
+								height: auto
+
+		.project-detail-thumbnails
+			display: flex
+			justify-content: flex-start
+			align-items: center
+			overflow-x: auto
+			height: 6rem
+			width: 100%
+			&::-webkit-scrollbar
+				width: rem(2px)
+
+			&::-webkit-scrollbar-track
+				background: #ffffff
+
+			&::-webkit-scrollbar-thumb
+				background: $main
+			.thumbnail
+				width: fit-content
+				height: fit-content
+				box-shadow: 0 0 0 1px #000000
+				margin-right: .675rem
+				cursor: pointer
+				outline: none
+				position: relative
+				transition: .3s ease-in-out
+				&:before
+					position: absolute
+					content: ''
+					width: 100%
+					height: 100%
+					top: 0
+					left: 0
+					background-color: rgba(0, 0, 0, .45)
+					opacity: 1
+					transition: .3s ease-in-out
+				&:last-child
+					margin-right: 0
+				figure
+					.box-zoom
+						img
+							width: rem(110.6px)
+							height: rem(51.8px)
+				&:active, &:focus
+					box-shadow: 0 0 0 1px $main
+				&.tns-nav-active
+					box-shadow: 0 0 0 1px $main
+					&:before
+						opacity: 0
+
+		.tns-controls
+			display: flex
+			align-items: center
+			outline: none
+			margin-bottom: 1rem
+			button
+				outline: none
+				border: 0
+				background: transparent
+				font-size: 1.25rem
+				line-height: 1.5rem
+				color: #333333
+				+flex-center()
+				&:disabled
+					color: #333333
+					opacity: .3
+
+	.slider-counter
+		display: flex
+		justify-content: flex-start
+		align-items: center
+		margin-left: 1rem
+		margin-right: 1rem
+		p
+			width: fit-content
+			color: #808080
+			font-size: 1rem
+			line-height: 1.5rem
+			&.current-count
+				color: #333333
+				font-weight: 600
+				margin-right: .25rem
+			&.total
+				color: #808080
+				margin-left: .25rem

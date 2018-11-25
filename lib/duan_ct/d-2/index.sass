@@ -1,0 +1,101 @@
+section.duanct-2
+	padding-bottom: 2rem
+	+media-breakpoint-up(lg)
+		padding-bottom: 4rem
+	.tagline
+		display: flex
+		justify-content: space-between
+		align-items: center
+		.title
+			h1, h2, h3, h4, h5, h6
+				text-align: left
+				margin-bottom: 0
+
+	//LAYOUTING
+	+nth-flex(10px)
+	+media-breakpoint-down(sm)
+		.nth-row
+			justify-content: center
+			align-items: center
+		.nth-col
+			flex: auto
+			margin-right: 0
+			margin-top: 2rem
+			&:first-child
+				margin-top: 1rem
+	+media-breakpoint-up(md)
+		.nth-row
+			margin-bottom: rem(10px)
+			&:last-child
+				margin-bottom: 0
+
+
+
+	//STYLING
+	.projects
+		+media-breakpoint-up(md)
+			margin-top: 1.5rem
+	a
+		text-decoration: none
+		img, .overlay
+			transition: .3s ease-in-out
+		&:hover
+			.overlay
+				height: 200%
+			img
+				transform: scale(1.2)
+		figure
+			position: relative
+			overflow: hidden
+			.box-zoom
+				overflow: hidden
+				width: 100%
+				img
+					width: 100%
+					height: auto
+			figcaption
+				position: absolute
+				width: 100%
+				height: 100%
+				top: 0
+				left: 0
+				z-index: 10
+				display: flex
+				align-items: flex-end
+				.block-title
+					text-align: left
+					z-index: 10
+					width: fit-content
+					margin-bottom: 1rem
+					margin-left: 1rem
+					margin-right: 1rem
+					h1, h2, h3, h4, h5, h6
+						font-weight: 700
+						line-height: 1.5rem
+						text-transform: uppercase
+						color: #ffffff
+						font-size: 1rem
+						+media-breakpoint-up(md)
+							font-size: 0.85rem
+						+media-breakpoint-up(lg)
+							font-size: 1rem
+				.overlay
+					position: absolute
+					width: calc(100% + 2px)
+					height: 50%
+					z-index: 5
+					bottom: -1px
+					+block-overlay()
+
+	.tns-controls
+		display: flex
+		outline: none
+		button
+			+flex-center()
+			font-size: 2rem
+			line-height: 2rem
+			color: #c5c5c5
+			border: 0
+			outline: none
+			background: transparent
+			cursor: pointer

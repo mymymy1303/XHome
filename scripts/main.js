@@ -1,5 +1,6 @@
 const theHuyApp = {
 	currentScrollY: 0,
+	projectDetailSlider: "",
 	ready: (fn) => {
 		if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
 			fn();
@@ -120,22 +121,22 @@ const theHuyApp = {
 
 theHuyApp.ready(() => {
 	/////////////-----------GLOBAL------------///////////////
-	
+
 	//Initialize AOS plugin
 	theHuyApp.avoidNull(aosInit);
 	theHuyApp.avoidNull(aosRefreshAfterLoad);
-	
+
 	//Back to top button
 	theHuyApp.avoidNull(clickBackToTop);
-	
+
 	//Set breadcrumb home icon
 	theHuyApp.avoidNull(setBreadcrumbHomeIcon);
-	
+
 	/////////////-----------END OF GLOBAL------------///////////////
 
 
 	/////////////-----------HEADER------------///////////////
-	
+
 	//Header mapping
 	theHuyApp.avoidNull(toolsMapping);
 	theHuyApp.avoidNull(customNavMapping);
@@ -160,7 +161,7 @@ theHuyApp.ready(() => {
 
 
 	/////////////-----------BANNER------------///////////////
-	
+
 	//Home Banner Slider
 	theHuyApp.avoidNull(homeBannerInit);
 
@@ -176,6 +177,45 @@ theHuyApp.ready(() => {
 	theHuyApp.avoidNull(aboutSliderInit);
 
 	/////////////-----------END OF ABOUT------------///////////////
+
+
+	/////////////-----------SERVICE DETAIL------------///////////////
+
+	//Map tab headers
+	theHuyApp.avoidNull(tabHeadersMapping);
+
+	//Map tab contents
+	theHuyApp.avoidNull(tabContentsMapping);
+
+	//Set tab contents max height
+	theHuyApp.avoidNull(setTabWrapperMaxHeight);
+	theHuyApp.avoidNull(setTabWrapperMaxHeightListener);
+
+	//Add toggle handler on tab
+	theHuyApp.avoidNull(tabToggle);
+
+	/////////////-----------END OF SERVICE DETAIL------------///////////////
+
+
+	/////////////-----------PROJECTS------------///////////////
+
+	//Hide pagination nav
+	theHuyApp.avoidNull(hidePaginationNav);
+
+	/////////////-----------END OF PROJECTS------------///////////////
+
+
+	/////////////-----------PROJECT DETAIL------------///////////////
+
+	theHuyApp.avoidNull(projectDetailSliderInit);
+	theHuyApp.avoidNull(sliderCounterMapping);
+	theHuyApp.avoidNull(setSliderCounterTotal);
+	theHuyApp.avoidNull(setSliderCounterCurrentIndex);
+	theHuyApp.avoidNull(projectDetailOthersSliderInit);
+	theHuyApp.avoidNull(projectDetailsOtherSliderMapping);
+
+	/////////////-----------END OF PROJECT DETAIL------------///////////////
+
 });
 
 /////////////-----------FUNCTIONS------------///////////////
@@ -333,7 +373,7 @@ const aboutSliderInit = () => {
 		autoplay: true,
 		autoplayButtonOutput: false,
 		controls: true,
-		controlsText: ["<span class='mdi mdi-arrow-left'></span>","<span class='mdi mdi-arrow-right'></span>"],
+		controlsText: ["<span class='mdi mdi-arrow-left'></span>", "<span class='mdi mdi-arrow-right'></span>"],
 		nav: false
 	});
 }
@@ -341,13 +381,136 @@ const aboutSliderInit = () => {
 /////////////-----------END OF ABOUT------------///////////////
 
 
+/////////////-----------SERVICE DETAIL------------///////////////
+
+const tabHeadersMapping = () => {
+	let tabHeaders = theHuyApp.selectAll('[data-tab-id]');
+	for (let i = 0; i < tabHeaders.length; i++) {
+		Mapping.mapElements.from(`[data-tab-id='${i + 1}']`).to('.tab-headers-mapping').use('appendTo');
+	}
+}
+
+const tabContentsMapping = () => {
+	let tabContents = theHuyApp.selectAll('[data-tab]');
+	for (let i = 0; i < tabContents.length; i++) {
+		Mapping.mapElements.from(`[data-tab='${i + 1}']`).to('.tab-contents-mapping').use('appendTo');
+	}
+}
+
+const tabToggle = () => {
+	let tabHeaders = theHuyApp.selectAll('[data-tab-id]');
+	for (let i = 0; i < tabHeaders.length; i++) {
+		theHuyApp.select(`[data-tab-id='${i + 1}']`).addEventListener('click', (e) => {
+			//Tab headers toggle
+			for (let i = 0; i < tabHeaders.length; i++) {
+				theHuyApp.removeClass(theHuyApp.select(`[data-tab-id='${i + 1}']`), 'active')
+			}
+			let currentTabHeader = e.currentTarget.dataset.tabId
+			theHuyApp.addClass(theHuyApp.select(`[data-tab-id='${currentTabHeader}']`), 'active')
+
+			//Tab contents toggle
+			for (let i = 0; i < tabHeaders.length; i++) {
+				theHuyApp.removeClass(theHuyApp.select(`[data-tab='${i + 1}']`), 'active')
+			}
+			let currentTabContent = e.currentTarget.dataset.tabId
+			theHuyApp.addClass(theHuyApp.select(`[data-tab='${currentTabContent}']`), 'active')
+		})
+	}
+}
+
+const setTabWrapperMaxHeight = () => {
+	let tabContents = theHuyApp.selectAll('[data-tab]');
+	let maxHeight = 0;
+	for (let i = 0; i < tabContents.length; i++) {
+		let currentHeight = theHuyApp.select(`[data-tab='${i + 1}']`).clientHeight;
+		if (currentHeight >= maxHeight) {
+			maxHeight = currentHeight;
+		}
+	}
+	theHuyApp.select('.tab-contents-mapping').style.height = `${maxHeight / 16}rem`;
+}
+
+const setTabWrapperMaxHeightListener = () => {
+	window.onresize = () => {
+		try {
+			setTabWrapperMaxHeight();
+		} catch (error) {
+
+		}
+	}
+}
+
+/////////////-----------END OF SERVICE DETAIL------------///////////////
 
 
+/////////////-----------PROJECTS------------///////////////
+
+const hidePaginationNav = () => {
+	theHuyApp.select('.FirstPage').parentElement.style.display = "none"
+	theHuyApp.select('.BackPage').parentElement.style.display = "none"
+	theHuyApp.select('.NextPage').parentElement.style.display = "none"
+	theHuyApp.select('.LastPage').parentElement.style.display = "none"
+}
+
+/////////////-----------END OF PROJECTS------------///////////////
 
 
+/////////////-----------PROJECT DETAIL------------///////////////
 
+const projectDetailSliderInit = () => {
+	return theHuyApp.projectDetailSlider = tns({
+		container: '.project-detail-slider',
+		items: 1,
+		slideBy: 'page',
+		controls: true,
+		controlsText: ["<span class='lnr lnr-arrow-left'></span>", "<span class='lnr lnr-arrow-right'></span>"],
+		navContainer: ".project-detail-thumbnails",
+		navAsThumbnails: true,
+		loop: false
+	});
+}
 
+const projectDetailOthersSliderInit = () => {
+	return tns({
+		container: '.other-project-details',
+		items: 1,
+		slideBy: 1,
+		controls: true,
+		controlsText: ["<span class='mdi mdi-chevron-left'></span>", "<span class='mdi mdi-chevron-right'></span>"],
+		loop: false,
+		nav: false,
+		responsive: {
+			768: {
+				items: 3
+			}
+		}
+	});
+}
 
+const sliderCounterMapping = () => {
+	Mapping.mapElements.from('.slider-counter').to('.tns-controls button').use('insertAfter');
+}
+
+const setSliderCounterTotal = () => {
+	theHuyApp.select('.slider-counter .total').innerText = theHuyApp.select('.project-detail-thumbnails').childElementCount;
+}
+
+const setSliderCounterCurrentIndex = () => {
+	theHuyApp.projectDetailSlider.events.on('indexChanged', () => {
+		let currentIndex = theHuyApp.projectDetailSlider.getInfo().displayIndex;
+		if (currentIndex < 10) {
+			theHuyApp.select('.slider-counter .current-count').innerText = `0${currentIndex}`;
+		} else {
+			theHuyApp.select('.slider-counter .current-count').innerText = currentIndex;
+		}
+	})
+}
+
+const projectDetailsOtherSliderMapping = () => {
+	Mapping.mapElements.from('.duanct-2 .tns-controls').to('.duanct-2 .tagline').use('appendTo');
+}
+
+/////////////-----------END OF PROJECT DETAIL------------///////////////
 
 
 /////////////-----------END OF FUNCTIONS------------///////////////
