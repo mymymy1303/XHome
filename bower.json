@@ -27,6 +27,8 @@
     "fancybox": "^3.5.2",
     "swiper": "^4.4.2",
     "tiny-slider": "^2.8.8",
-    "aos": "^2.3.4"
+    "aos": "^2.3.4",
+    "lightgallery": "^1.6.11",
+    "lg-thumbnail": "^1.1.0"
   }
 }

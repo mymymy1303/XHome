@@ -216,6 +216,21 @@ theHuyApp.ready(() => {
 
 	/////////////-----------END OF PROJECT DETAIL------------///////////////
 
+
+	/////////////-----------GALLERY------------///////////////
+
+	theHuyApp.avoidNull(galleryInit);
+
+	/////////////-----------END OF GALLERY------------///////////////
+
+
+	/////////////-----------DISTRIBUTION------------///////////////
+
+	theHuyApp.avoidNull(distributionSidemenuMapping);
+	theHuyApp.avoidNull(toggleDistributionSidemenu);
+
+	/////////////-----------END OF DISTRIBUTION------------///////////////
+
 });
 
 /////////////-----------FUNCTIONS------------///////////////
@@ -512,5 +527,46 @@ const projectDetailsOtherSliderMapping = () => {
 
 /////////////-----------END OF PROJECT DETAIL------------///////////////
 
+
+/////////////-----------GALLERY------------///////////////
+
+const galleryInit = () => {
+	$(".thuvien-1 .gallery").lightGallery({
+		thumbnail: true
+	});
+}
+
+/////////////-----------END OF GALLERY------------///////////////
+
+
+/////////////-----------DISTRIBUTION------------///////////////
+
+const distributionSidemenuMapping = () => {
+	return new MappingListener({
+		selector: '.distribution',
+		mobileWrapper: '.distribution-sidemenu',
+		mobileMethod: 'appendTo',
+		desktopWrapper: '.distribution-wrapper',
+		desktopMethod: 'prependTo',
+		breakpoint: 992
+	}).watch();
+}
+
+const toggleDistributionSidemenu = () => {
+	theHuyApp.select('.distribution-sidemenu-toggle-button').onclick = () => {
+		theHuyApp.active('.distribution-sidemenu', 'active')
+		theHuyApp.active('.distribution-sidemenu-backdrop', 'active')
+	}
+	theHuyApp.select('.distribution-sidemenu-close-button').onclick = () => {
+		theHuyApp.active('.distribution-sidemenu', 'active')
+		theHuyApp.active('.distribution-sidemenu-backdrop', 'active')
+	}
+	theHuyApp.select('.distribution-sidemenu-backdrop').onclick = () => {
+		theHuyApp.active('.distribution-sidemenu', 'active')
+		theHuyApp.active('.distribution-sidemenu-backdrop', 'active')
+	}
+}
+
+/////////////-----------END OF DISTRIBUTION------------///////////////
 
 /////////////-----------END OF FUNCTIONS------------///////////////

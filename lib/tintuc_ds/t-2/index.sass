@@ -1,0 +1,200 @@
+section.tintucds-2
+	.news
+		margin-top: 2rem
+		margin-bottom: 2rem
+		
+
+	a
+		text-decoration: none
+		img
+			transition: .3s ease-in-out
+		&:hover
+			img
+				transform: scale(1.2)
+	.main-news
+		a
+			text-decoration: none
+			figure
+				width: 100%
+				height: auto
+				position: relative
+				.box-zoom
+					width: 100%
+					overflow: hidden
+					height: auto
+					img
+						max-width: 100%
+						height: auto
+				figcaption
+					position: absolute
+					bottom: 0
+					right: 0
+					z-index: 1
+					width: 50%
+					height: 50%
+					background-color: rgba(0, 0, 0, .75)
+					padding: 1.5rem 1.75rem
+					+media-breakpoint-down(sm)
+						width: 100%
+						height: 50%
+						display: flex
+						flex-direction: column
+						justify-content: center
+						padding: .5rem 1rem
+					.time
+						color: #999999
+						font-size: .875rem
+						line-height: 1.5rem
+						+media-breakpoint-down(sm)
+							font-size: .75rem
+							line-height: 1rem
+					.title
+						color: #ffffff
+						font-size: .75rem
+						line-height: 1.5rem
+						font-weight: 700
+						text-transform: uppercase
+						margin: .5rem 0
+						+media-breakpoint-down(sm)
+							margin-top: 0
+							line-height: 1.25rem
+							+text-clamp(2)
+					.description
+						color: #c5c5c5
+						font-size: .9rem
+						line-height: rem(22px)
+						+media-breakpoint-up(lg)
+							+text-clamp(2)
+						+media-breakpoint-down(sm)
+							display: none
+	
+	
+	.sub-news
+		display: flex
+		justify-content: space-between
+		flex-direction: column
+		+media-breakpoint-up(sm)
+			flex-direction: column
+		+media-breakpoint-up(md)
+			flex-direction: row
+			margin-top: 1.875rem
+		+media-breakpoint-up(lg)
+			flex-direction: column
+			margin-top: 0
+		a
+			text-decoration: none
+			+media-breakpoint-down(sm)
+				width: 100%
+				margin-top: 2rem
+			+media-breakpoint-up(md)
+				width: calc((100% - 30px)/2)
+			+media-breakpoint-up(lg)
+				width: 100%
+			&:last-child
+				margin-bottom: 0
+			figure
+				width: 100%
+				height: auto
+				position: relative
+				.box-zoom
+					width: 100%
+					height: auto
+					overflow: hidden
+					img
+						max-width: 100%
+						height: auto
+				+media-breakpoint-down(sm)
+					width: fit-content
+					margin-left: auto
+					margin-right: auto
+				figcaption
+					position: absolute
+					bottom: 0
+					right: 0
+					z-index: 1
+					width: 50%
+					height: 100%
+					background-color: rgba(0, 0, 0, .75)
+					padding: 1rem
+					+media-breakpoint-down(sm)
+						width: 100%
+						height: 50%
+						display: flex
+						flex-direction: column
+						justify-content: center
+						padding: .5rem 1rem
+					.time
+						color: #999999
+						font-size: .875rem
+						line-height: 1.5rem
+						+media-breakpoint-down(sm)
+							font-size: .75rem
+							line-height: 1rem
+					.title
+						color: #ffffff
+						font-size: .75rem
+						line-height: 1.5rem
+						font-weight: 700
+						text-transform: uppercase
+						margin-top: .5rem
+						+media-breakpoint-down(sm)
+							margin-top: 0
+							line-height: 1.25rem
+							+text-clamp(2)
+						+media-breakpoint-up(md)
+							+text-clamp(5)
+						+media-breakpoint-up(lg)
+							+text-clamp(4)
+
+	.normal-news
+		margin-bottom: 2rem
+		+media-breakpoint-up(lg)
+			margin-bottom: 4rem
+		.normal-news-item
+			margin-bottom: 1.875rem
+			&:last-child
+				margin-bottom: 0
+			+media-breakpoint-up(md)
+				&:nth-child(5)
+					margin-bottom: 0
+			+media-breakpoint-up(lg)
+				&:nth-child(4)
+					margin-bottom: 0
+		a
+			text-decoration: none
+			figure
+				width: 100%
+				height: auto
+				display: flex
+				align-items: flex-start
+				+media-breakpoint-up(lg)
+					flex-direction: column
+					align-items: center
+					justify-content: center
+				.box-zoom
+					width: 100%
+					overflow: hidden
+					height: auto
+					img
+						max-width: 100%
+						height: auto
+				figcaption
+					padding-left: .5rem
+					+media-breakpoint-up(lg)
+						padding-left: 0
+						padding-top: .25rem
+					.time
+						color: #999999
+						font-size: .875rem
+						line-height: .875rem
+						+media-breakpoint-up(lg)
+							line-height: 1.5rem
+							margin-bottom: .25rem
+					.title
+						color: #000000
+						font-size: .75rem
+						line-height: 1.5rem
+						font-weight: 700
+						text-transform: uppercase
+						margin-top: 0
+						+media-breakpoint-up(lg)

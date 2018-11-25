@@ -8,7 +8,8 @@
 		"bower_components/offline/themes/offline-theme-default.css",
 		"bower_components/offline/themes/offline-language-english.css",
 		"bower_components/tiny-slider/dist/tiny-slider.css",
-		"bower_components/aos/dist/aos.css"
+		"bower_components/aos/dist/aos.css",
+		"bower_components/lightgallery/dist/css/lightgallery.min.css"
 	],
 	"scripts":[
 		"bower_components/jquery/dist/jquery.min.js",
@@ -19,6 +20,7 @@
 		"bower_components/offline/offline.min.js",
 		"bower_components/fancybox/dist/jquery.fancybox.min.js",
 		"bower_components/tiny-slider/dist/min/tiny-slider.js",
-		"bower_components/aos/dist/aos.js"
+		"bower_components/aos/dist/aos.js",
+		"bower_components/lightgallery/dist/js/lightgallery-all.min.js"
 	]
 }

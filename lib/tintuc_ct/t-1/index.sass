@@ -1,0 +1,88 @@
+section.tintucct-1
+	padding: 2rem 0
+	+media-breakpoint-up(lg)
+		padding: 4rem 0
+
+	.main-content
+		.time
+			color: #999999
+			font-size: .875rem
+			line-height: 1.5rem
+			+media-breakpoint-up(lg)
+				margin-bottom: .25rem
+		.title
+			margin-bottom: 2rem
+			h1, h2, h3, h4, h5, h6
+				font-size: 1.25rem
+				text-transform: uppercase
+				text-align: left
+				color: $main
+				font-weight: 400
+				line-height: 1.5rem
+				+media-breakpoint-up(md)
+					font-size: 1.75rem
+					line-height: 1.75rem
+				+media-breakpoint-up(lg)
+					font-size: 2.5rem
+					line-height: 2.5rem
+		.content
+			h2
+				font-size: 1.125rem
+				font-weight: 700
+				line-height: 1.125rem
+				color: #333333
+			p
+				font-size: .9375rem
+				font-weight: 400
+				line-height: 1.5rem
+				color: #333333
+			figure
+				img
+					max-width: 100%
+					height: auto
+				figcaption
+					p
+						font-size: .9375rem
+						font-weight: 300
+						line-height: 1.5rem
+						color: #333333
+						width: fit-content
+						margin-left: auto
+						margin-right: auto
+						text-align: justify
+
+	.other-news
+		margin-top: 2.5rem
+		+media-breakpoint-up(lg)
+			margin-top: 0
+		a
+			display: block
+			text-decoration: none
+			margin-bottom: 1.875rem
+			&:last-child
+				margin-bottom: 0
+			figure
+				display: flex
+				align-items: top
+				.box-zoom
+					flex: 0 0 40%
+					max-width: 40%
+					img
+						max-width: 100%
+						height: auto
+				figcaption
+					flex: 0 0 60%
+					max-width: 60%
+					padding-left: 1rem
+					.time
+						color: #999999
+						font-size: .875rem
+						font-weight: 400
+						line-height: .875rem
+						margin-bottom: .25rem
+					.title
+						color: #333333
+						font-size: .875rem
+						line-height: 1.25rem
+						font-weight: 700
+						text-transform: uppercase
