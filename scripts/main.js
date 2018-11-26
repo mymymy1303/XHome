@@ -17,7 +17,9 @@ const theHuyApp = {
 	avoidNull: (f) => {
 		try {
 			f()
-		} catch (error) { }
+		} catch (error) {
+			console.error(error)
+		}
 	},
 	addClass: (el, className) => {
 		if (el.classList)
@@ -59,11 +61,7 @@ const theHuyApp = {
 		Array.prototype.forEach.call(es, f);
 	},
 	backToTop: () => {
-		window.scrollTo({
-			behavior: 'smooth',
-			left: 0,
-			top: 0
-		});
+		$("html, body").animate({ scrollTop: 0 }, 1000);
 	},
 	smoothWheel: (target, speed, smooth) => {
 		if (target == document)
@@ -147,7 +145,7 @@ theHuyApp.ready(() => {
 	theHuyApp.avoidNull(mobile_headerSidemenuToggle);
 
 	//Header collapse on scroll listener
-	theHuyApp.avoidNull(collapseHeaderListener);
+	collapseHeaderListener()
 
 	/////////////-----------END OF HEADER------------///////////////
 
@@ -327,10 +325,10 @@ const collapseHeaderListener = () => {
 		theHuyApp.currentScrollY = window.scrollY;
 		if (theHuyApp.currentScrollY <= 80) {
 			window.requestAnimationFrame(function () {
-				theHuyApp.removeClass(theHuyApp.select('.canhcam-header-1'), 'collapse')
+				theHuyApp.removeClass(theHuyApp.select('.canhcam-header-1'), 'collapsed-header')
 			});
 		} else {
-			theHuyApp.addClass(theHuyApp.select('.canhcam-header-1'), 'collapse')
+			theHuyApp.addClass(theHuyApp.select('.canhcam-header-1'), 'collapsed-header')
 		}
 
 	});
@@ -408,14 +406,22 @@ const aboutSliderInit = () => {
 const tabHeadersMapping = () => {
 	let tabHeaders = theHuyApp.selectAll('[data-tab-id]');
 	for (let i = 0; i < tabHeaders.length; i++) {
-		Mapping.mapElements.from(`[data-tab-id='${i + 1}']`).to('.tab-headers-mapping').use('appendTo');
+		try {
+			Mapping.mapElements.from(`[data-tab-id='${i + 1}']`).to('.tab-headers-mapping').use('appendTo');
+		} catch (error) {
+
+		}
 	}
 }
 
 const tabContentsMapping = () => {
 	let tabContents = theHuyApp.selectAll('[data-tab]');
 	for (let i = 0; i < tabContents.length; i++) {
-		Mapping.mapElements.from(`[data-tab='${i + 1}']`).to('.tab-contents-mapping').use('appendTo');
+		try {
+			Mapping.mapElements.from(`[data-tab='${i + 1}']`).to('.tab-contents-mapping').use('appendTo');
+		} catch (error) {
+
+		}
 	}
 }
 
@@ -449,7 +455,11 @@ const setTabWrapperMaxHeight = () => {
 			maxHeight = currentHeight;
 		}
 	}
-	theHuyApp.select('.tab-contents-mapping').style.height = `${maxHeight / 16}rem`;
+	try {
+		theHuyApp.select('.tab-contents-mapping').style.height = `${maxHeight / 16}rem`
+	} catch (error) {
+
+	};
 }
 
 const setTabWrapperMaxHeightListener = () => {
@@ -468,10 +478,19 @@ const setTabWrapperMaxHeightListener = () => {
 /////////////-----------PROJECTS------------///////////////
 
 const hidePaginationNav = () => {
-	theHuyApp.select('.FirstPage').parentElement.style.display = "none"
-	theHuyApp.select('.BackPage').parentElement.style.display = "none"
-	theHuyApp.select('.NextPage').parentElement.style.display = "none"
-	theHuyApp.select('.LastPage').parentElement.style.display = "none"
+	try {
+		theHuyApp.select('.FirstPage').parentElement.style.display = "none"
+		theHuyApp.select('.BackPage').parentElement.style.display = "none"
+
+	} catch (error) {
+
+	}
+	try {
+		theHuyApp.select('.NextPage').parentElement.style.display = "none"
+		theHuyApp.select('.LastPage').parentElement.style.display = "none"
+	} catch (error) {
+
+	}
 }
 
 /////////////-----------END OF PROJECTS------------///////////////
@@ -510,26 +529,43 @@ const projectDetailOthersSliderInit = () => {
 }
 
 const sliderCounterMapping = () => {
-	Mapping.mapElements.from('.slider-counter').to('.tns-controls button').use('insertAfter');
+	try {
+		Mapping.mapElements.from('.slider-counter').to('.tns-controls button').use('insertAfter');
+
+	} catch (error) {
+
+	}
 }
 
 const setSliderCounterTotal = () => {
-	theHuyApp.select('.slider-counter .total').innerText = theHuyApp.select('.project-detail-thumbnails').childElementCount;
+	try {
+		theHuyApp.select('.slider-counter .total').innerText = theHuyApp.select('.project-detail-thumbnails').childElementCount;
+	} catch (error) {
+
+	}
 }
 
 const setSliderCounterCurrentIndex = () => {
-	theHuyApp.projectDetailSlider.events.on('indexChanged', () => {
-		let currentIndex = theHuyApp.projectDetailSlider.getInfo().displayIndex;
-		if (currentIndex < 10) {
-			theHuyApp.select('.slider-counter .current-count').innerText = `0${currentIndex}`;
-		} else {
-			theHuyApp.select('.slider-counter .current-count').innerText = currentIndex;
-		}
-	})
+	try {
+		theHuyApp.projectDetailSlider.events.on('indexChanged', () => {
+			let currentIndex = theHuyApp.projectDetailSlider.getInfo().displayIndex;
+			if (currentIndex < 10) {
+				theHuyApp.select('.slider-counter .current-count').innerText = `0${currentIndex}`;
+			} else {
+				theHuyApp.select('.slider-counter .current-count').innerText = currentIndex;
+			}
+		})
+	} catch (error) {
+
+	}
 }
 
 const projectDetailsOtherSliderMapping = () => {
-	Mapping.mapElements.from('.duanct-2 .tns-controls').to('.duanct-2 .tagline').use('appendTo');
+	try {
+		Mapping.mapElements.from('.duanct-2 .tns-controls').to('.duanct-2 .tagline').use('appendTo');
+	} catch (error) {
+
+	}
 }
 
 /////////////-----------END OF PROJECT DETAIL------------///////////////
@@ -549,28 +585,36 @@ const galleryInit = () => {
 /////////////-----------DISTRIBUTION------------///////////////
 
 const distributionSidemenuMapping = () => {
-	return new MappingListener({
-		selector: '.distribution',
-		mobileWrapper: '.distribution-sidemenu',
-		mobileMethod: 'appendTo',
-		desktopWrapper: '.distribution-wrapper',
-		desktopMethod: 'prependTo',
-		breakpoint: 992
-	}).watch();
+	try {
+		return new MappingListener({
+			selector: '.distribution',
+			mobileWrapper: '.distribution-sidemenu',
+			mobileMethod: 'appendTo',
+			desktopWrapper: '.distribution-wrapper',
+			desktopMethod: 'prependTo',
+			breakpoint: 992
+		}).watch();
+	} catch (error) {
+
+	}
 }
 
 const toggleDistributionSidemenu = () => {
-	theHuyApp.select('.distribution-sidemenu-toggle-button').onclick = () => {
-		theHuyApp.active('.distribution-sidemenu', 'active')
-		theHuyApp.active('.distribution-sidemenu-backdrop', 'active')
-	}
-	theHuyApp.select('.distribution-sidemenu-close-button').onclick = () => {
-		theHuyApp.active('.distribution-sidemenu', 'active')
-		theHuyApp.active('.distribution-sidemenu-backdrop', 'active')
-	}
-	theHuyApp.select('.distribution-sidemenu-backdrop').onclick = () => {
-		theHuyApp.active('.distribution-sidemenu', 'active')
-		theHuyApp.active('.distribution-sidemenu-backdrop', 'active')
+	try {
+		theHuyApp.select('.distribution-sidemenu-toggle-button').onclick = () => {
+			theHuyApp.active('.distribution-sidemenu', 'active')
+			theHuyApp.active('.distribution-sidemenu-backdrop', 'active')
+		}
+		theHuyApp.select('.distribution-sidemenu-close-button').onclick = () => {
+			theHuyApp.active('.distribution-sidemenu', 'active')
+			theHuyApp.active('.distribution-sidemenu-backdrop', 'active')
+		}
+		theHuyApp.select('.distribution-sidemenu-backdrop').onclick = () => {
+			theHuyApp.active('.distribution-sidemenu', 'active')
+			theHuyApp.active('.distribution-sidemenu-backdrop', 'active')
+		}
+	} catch (error) {
+
 	}
 }
 
@@ -581,40 +625,48 @@ const toggleDistributionSidemenu = () => {
 
 const desktopCareerCollapsible = () => {
 	$('.tuyendung-2 .collapse').on('click', (e) => {
-		if ($(window).width() >= 768) {
-			let contentHeight = $($(e.currentTarget).children()[1]).height();
-			if ($(e.currentTarget).height() > contentHeight) {
-				$(e.currentTarget).css('height', `${45 / 16}rem`);
-				$(e.currentTarget).removeClass('active')
+		try {
+			if ($(window).width() >= 768) {
+				let contentHeight = $($(e.currentTarget).children()[1]).height();
+				if ($(e.currentTarget).height() > contentHeight) {
+					$(e.currentTarget).css('height', `${45 / 16}rem`);
+					$(e.currentTarget).removeClass('active')
+				} else {
+					let collapseActiveHeight = $(e.currentTarget).height() + contentHeight;
+					$('.tuyendung-2 .collapse').each(function () {
+						$(this).css('height', `${45 / 16}rem`);
+						$(this).removeClass('active')
+					})
+					$(e.currentTarget).addClass('active').css('height', `${collapseActiveHeight / 16}rem`)
+				}
 			} else {
-				let collapseActiveHeight = $(e.currentTarget).height() + contentHeight;
-				$('.tuyendung-2 .collapse').each(function () {
-					$(this).css('height', `${45 / 16}rem`);
-					$(this).removeClass('active')
+				$($(e.currentTarget).children()[1]).toggleClass('active');
+				$('.tuyendung-2 .collapse .collapse-content').on('click', (e) => {
+					e.stopPropagation();
 				})
-				$(e.currentTarget).addClass('active').css('height', `${collapseActiveHeight / 16}rem`)
+				$('.collapse-content-toggle-button').on('click', (e) => {
+					$($(e.currentTarget).parent()[0]).removeClass('active')
+				})
 			}
-		} else {
-			$($(e.currentTarget).children()[1]).toggleClass('active');
-			$('.tuyendung-2 .collapse .collapse-content').on('click', (e) => {
-				e.stopPropagation();
-			})
-			$('.collapse-content-toggle-button').on('click', (e) => {
-				$($(e.currentTarget).parent()[0]).removeClass('active')
-			})
+		} catch (error) {
+
 		}
 	})
 }
 
 const careerMobileMapping = () => {
-	return new MappingListener({
-		selector: '.collapse-wrapper',
-		mobileWrapper: '.collapse-mobile-wrapper',
-		mobileMethod: 'appendTo',
-		desktopWrapper: '.collapse-desktop-wrapper',
-		desktopMethod: 'appendTo',
-		breakpoint: 768
-	}).watch();
+	try {
+		return new MappingListener({
+			selector: '.collapse-wrapper',
+			mobileWrapper: '.collapse-mobile-wrapper',
+			mobileMethod: 'appendTo',
+			desktopWrapper: '.collapse-desktop-wrapper',
+			desktopMethod: 'appendTo',
+			breakpoint: 768
+		}).watch();
+	} catch (error) {
+
+	}
 }
 
 /////////////-----------END OF CAREER------------///////////////
