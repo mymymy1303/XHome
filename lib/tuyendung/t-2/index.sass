@@ -1,0 +1,228 @@
+section.tuyendung-2
+	padding-bottom: 2rem
+	+media-breakpoint-up(lg)
+		padding-bottom: 4rem
+
+	.tagline
+		.title
+			h2
+				text-align: left
+				margin-bottom: 2rem
+
+	.mdi.mdi-dots-horizontal
+		font-size: 1.25rem
+		color: darken($main, 10%)
+		text-align: right
+		+media-breakpoint-up(md)
+			display: none
+	
+	.collapse-content-toggle-button
+		+media-breakpoint-up(md)
+			display: none
+		+media-breakpoint-down(sm)
+			position: absolute
+			top: .5rem
+			right: 1rem
+			font-size: 1.5rem
+			color: #333333
+
+	.collapse-mobile-wrapper
+		+media-breakpoint-up(md)
+			display: none
+		.collapse-wrapper
+			.collapse-title
+				padding: 1rem
+				background-color: $main
+				p
+					color: #ffffff
+					text-transform: uppercase
+					line-height: 2rem
+			.collapse
+				.collapse-heading
+					margin-top: 1.5rem
+					padding: 1rem
+					background-color: #ffffff
+					box-shadow: 0px 2px 10px 0px rgba(50, 50, 50, 0.5)
+					p
+						color: #333333
+						font-size: .9375rem
+						font-weight: 500
+						text-transform: capitalize
+						line-height: 2rem
+						color: darken($main, 10%)
+						font-weight: 600
+						&.career
+							position: relative
+							span.new
+								position: absolute
+								top: -.75rem
+								right: -.75rem
+								height: 1rem
+								width: 2rem
+								font-size: .75rem
+								background-color: $main
+								color: #ffffff
+								line-height: 1rem
+								text-align: center
+				.collapse-content
+					padding: 1rem
+					padding-top: 2rem
+					background-color: #ffffff
+					position: fixed
+					bottom: -100vh
+					left: 0
+					width: 100vw
+					height: calc(100vh - 4rem + 1px)
+					overflow-y: auto
+					z-index: 666
+					transition: .3s ease-in-out
+					&.active
+						bottom: 0
+					p
+						font-size: .9375rem
+						color: #333333
+						font-weight: 400
+						line-height: 1.5rem
+					.collapse-submit
+						width: 10rem
+						height: 3.125rem
+						+flex-center()
+						text-transform: uppercase
+						font-weight: 600
+						font-size: .9375rem
+						color: #ffffff
+						background: $main
+						text-decoration: none
+						margin-bottom: 1rem
+	.collapse-desktop-wrapper
+		+media-breakpoint-down(sm)
+			display: none
+		.collapse-wrapper
+			.collapse-title
+				padding-right: 1.5rem
+				padding-left: 1.5rem
+				width: 100%
+				height: rem(45px)
+				display: flex
+				align-items: center
+				justify-content: center
+				background-color: $main
+				color: #ffffff
+				font-weight: 700
+				line-height: 1.5rem
+				+media-breakpoint-up(md)
+					font-size: .85rem
+				+media-breakpoint-up(lg)
+					font-size: 1rem
+				p
+					width: auto
+					&.career
+						flex: 0 0 40%
+						max-width: 40%
+						text-align: left
+						position: relative
+					&.number
+						flex: 0 0 20%
+						max-width: 20%
+						text-align: center
+					&.place
+						flex: 0 0 20%
+						max-width: 20%
+						text-align: center
+					&.time
+						flex: 0 0 20%
+						max-width: 20%
+						text-align: right
+			.collapse
+				height: rem(45px)
+				overflow: hidden
+				&:nth-child(2n)
+					.collapse-heading
+						background-color: #fafafa
+				&.active
+					.collapse-heading
+						background-color: $main
+						p
+							color: #ffffff
+							&.career
+								span.new
+									+media-breakpoint-up(md)
+										color: #ffffff
+									+media-breakpoint-up(lg)
+										background-color: #ffffff
+										color: $main
+				.collapse-heading
+					padding-right: 1.5rem
+					padding-left: 1.5rem
+					width: 100%
+					height: rem(45px)
+					display: flex
+					justify-content: center
+					align-items: center
+					font-weight: 500
+					font-size: .9375rem
+					line-height: 1.5rem
+					background-color: #ffffff
+					cursor: pointer
+					transition: .3s ease-in-out
+					p
+						width: auto
+						text-transform: capitalize
+						transition: .3s ease-in-out
+						&.career
+							flex: 0 0 40%
+							max-width: 40%
+							text-align: left
+							position: relative
+							span.new
+								position: absolute
+								font-weight: 600
+								text-align: center
+								line-height: 1.5rem
+								font-size: .75rem
+								color: $main
+								+media-breakpoint-up(md)
+									right: 0
+								+media-breakpoint-up(lg)
+									color: #ffffff
+									border-radius: .75rem
+									height: 1.5rem
+									width: 3rem
+									background-color: $main
+									right: 20%
+									transform: translateX(50%)
+						&.number
+							flex: 0 0 20%
+							max-width: 20%
+							text-align: center
+						&.place
+							flex: 0 0 20%
+							max-width: 20%
+							text-align: center
+						&.time
+							flex: 0 0 20%
+							max-width: 20%
+							text-align: right
+				.collapse-content
+					padding-left: 1.5rem
+					padding-right: 1.5rem
+					padding-bottom: 1.5rem
+					transition: .3s ease-in-out
+					p
+						font-size: .9375rem
+						color: #333333
+						font-weight: 400
+						line-height: 1.5rem
+						&:first-child
+							padding-top: .5rem
+				.collapse-submit
+					width: 10rem
+					height: 3.125rem
+					+flex-center()
+					text-transform: uppercase
+					font-weight: 600
+					font-size: .9375rem
+					color: #ffffff
+					background: $main
+					text-decoration: none
+					margin-bottom: 2rem

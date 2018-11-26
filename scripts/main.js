@@ -231,6 +231,13 @@ theHuyApp.ready(() => {
 
 	/////////////-----------END OF DISTRIBUTION------------///////////////
 
+	/////////////-----------CAREER------------///////////////
+
+	theHuyApp.avoidNull(desktopCareerCollapsible);
+	theHuyApp.avoidNull(careerMobileMapping);
+
+	/////////////-----------END OF CAREER------------///////////////
+
 });
 
 /////////////-----------FUNCTIONS------------///////////////
@@ -568,5 +575,48 @@ const toggleDistributionSidemenu = () => {
 }
 
 /////////////-----------END OF DISTRIBUTION------------///////////////
+
+
+/////////////-----------CAREER------------///////////////
+
+const desktopCareerCollapsible = () => {
+	$('.tuyendung-2 .collapse').on('click', (e) => {
+		if ($(window).width() >= 768) {
+			let contentHeight = $($(e.currentTarget).children()[1]).height();
+			if ($(e.currentTarget).height() > contentHeight) {
+				$(e.currentTarget).css('height', `${45 / 16}rem`);
+				$(e.currentTarget).removeClass('active')
+			} else {
+				let collapseActiveHeight = $(e.currentTarget).height() + contentHeight;
+				$('.tuyendung-2 .collapse').each(function () {
+					$(this).css('height', `${45 / 16}rem`);
+					$(this).removeClass('active')
+				})
+				$(e.currentTarget).addClass('active').css('height', `${collapseActiveHeight / 16}rem`)
+			}
+		} else {
+			$($(e.currentTarget).children()[1]).toggleClass('active');
+			$('.tuyendung-2 .collapse .collapse-content').on('click', (e) => {
+				e.stopPropagation();
+			})
+			$('.collapse-content-toggle-button').on('click', (e) => {
+				$($(e.currentTarget).parent()[0]).removeClass('active')
+			})
+		}
+	})
+}
+
+const careerMobileMapping = () => {
+	return new MappingListener({
+		selector: '.collapse-wrapper',
+		mobileWrapper: '.collapse-mobile-wrapper',
+		mobileMethod: 'appendTo',
+		desktopWrapper: '.collapse-desktop-wrapper',
+		desktopMethod: 'appendTo',
+		breakpoint: 768
+	}).watch();
+}
+
+/////////////-----------END OF CAREER------------///////////////
 
 /////////////-----------END OF FUNCTIONS------------///////////////

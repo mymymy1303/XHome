@@ -1,0 +1,133 @@
+section.lienhe-1
+	padding: 2rem 0
+	+media-breakpoint-up(lg)
+		padding: 4rem 0
+
+	.info
+		margin-top: 2rem
+		margin-bottom: 2rem
+		+media-breakpoint-up(lg)
+			margin-bottom: 0
+			height: calc(100% - 2rem)
+		figure
+			padding: 0 .9375rem
+			min-height: 15rem
+			display: flex
+			align-items: center
+			justify-content: center
+			flex-direction: column
+			width: 100%
+			height: 100%
+			.box-zoom
+				margin-bottom: 2rem
+				img
+					max-width: 100%
+					height: auto
+			figcaption
+				p
+					position: relative
+					font-size: .9375rem
+					line-height: 1.5rem
+					font-weight: 400
+					color: #333333
+					padding-left: 1.5rem
+					&:nth-child(1)
+						&:before
+							position: absolute
+							content: "\F2DC"
+							font-family: "Material Design Icons"
+							font-size: 1rem
+							color: #999999
+							left: 0
+					&:nth-child(2)
+						&:before
+							position: absolute
+							content: "\F3F2"
+							font-family: "Material Design Icons"
+							font-size: 1rem
+							color: #999999
+							left: 0
+					&:nth-child(3)
+						&:before
+							position: absolute
+							content: '\F1EE'
+							font-family: "Material Design Icons"
+							font-size: 1rem
+							color: #999999
+							left: 0
+
+	.wrap-form
+		+media-breakpoint-up(lg)
+			margin-top: 2rem
+		> div
+			display: flex
+			justify-content: center
+			align-items: center
+			flex-direction: column
+			+media-breakpoint-up(lg)
+				flex-direction: row
+				flex-wrap: wrap
+			.form-group
+				width: 100%
+				+media-breakpoint-up(lg)
+					flex: 0 0 calc((50% - .9375rem))
+					max-width: calc((50% - .9375rem))
+					margin-right: 1.875rem
+					&:nth-child(2n)
+						margin-right: 0
+					&:last-child
+						margin-right: 0
+						flex: 0 0 100%
+						max-width: 100%
+				input[type="text"]
+					padding-left: 1rem
+					width: 100%
+					height: rem(45px)
+					box-shadow: 0 0 0 1px #ebebeb
+					border: 0
+					outline: none
+				textarea
+					padding-left: 1rem
+					padding-top: .75rem
+					width: 100%
+					box-shadow: 0 0 0 1px #ebebeb
+					border: 0
+					outline: none
+					resize: none
+				input[type="text"], textarea
+					&::-webkit-input-placeholder 
+						color: #999999
+						font-style: italic
+						font-size: .9375rem
+
+					&::-moz-placeholder 
+						color: #999999
+						font-style: italic
+						font-size: .9375rem
+
+					&:-ms-input-placeholder
+						color: #999999
+						font-style: italic
+						font-size: .9375rem
+
+					&:-moz-placeholder 
+						color: #999999
+						font-style: italic
+						font-size: .9375rem
+		.frm-captcha
+		.frm-btnwrap
+			label
+				display: none
+			.frm-btn
+				margin-left: -45px
+				input[type="reset"]
+					display: none
+				input[type="submit"]
+					border: 0
+					outline: none
+					width: 100%
+					height: 100%
+					cursor: pointer
+					color: #ffffff
+					text-transform: uppercase
+					background-color: transparent
