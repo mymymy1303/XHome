@@ -1,6 +1,12 @@
 const theHuyApp = {
 	currentScrollY: 0,
 	projectDetailSlider: "",
+	recruitmentTitle: {
+		career: "",
+		number: "",
+		place: "",
+		time: ""
+	},
 	ready: (fn) => {
 		if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
 			fn();
@@ -223,6 +229,7 @@ theHuyApp.ready(() => {
 
 
 	/////////////-----------DISTRIBUTION------------///////////////
+	theHuyApp.avoidNull(dealerMapping);
 
 	theHuyApp.avoidNull(distributionSidemenuMapping);
 	theHuyApp.avoidNull(toggleDistributionSidemenu);
@@ -236,6 +243,44 @@ theHuyApp.ready(() => {
 
 	/////////////-----------END OF CAREER------------///////////////
 
+	$('.edit-link').html(`<i class="mdi mdi-circle-edit-outline"></i>`)
+	$('.lienhe-1 textarea').attr('rows', 7)
+
+	if ($(window).width() < 768) {
+		if (theHuyApp.recruitmentTitle.career == "") {
+			try {
+				theHuyApp.recruitmentTitle.career = $('.collapse-title .career').text();
+				theHuyApp.recruitmentTitle.number = $('.collapse-title .number').text();
+				theHuyApp.recruitmentTitle.place = $('.collapse-title .place').text();
+				theHuyApp.recruitmentTitle.time = $('.collapse-title .time').text();
+				$('.collapse-heading .career').each(function (i, e) {
+					let element = $('.collapse-heading .career')[i]
+					let html = $(element).html();
+					// if (html.indexOf("<") > 0) {
+					// 	html = html.substring(0, html.indexOf("<") - 1).substring(1)
+					// }
+					$(element).html(`<span style="color: #bf1e2d; margin-bottom: .25rem; display: block">${theHuyApp.recruitmentTitle.career.toUpperCase()}:</span>${html}`)
+				})
+				$('.collapse-heading .number').each(function (i, e) {
+					let element = $('.collapse-heading .number')[i]
+					let html = $(element).html();
+					$(element).html(`<span style="color: #bf1e2d; margin-bottom: .25rem; display: block">${theHuyApp.recruitmentTitle.number.toUpperCase()}:</span>${html}`)
+				})
+				$('.collapse-heading .place').each(function (i, e) {
+					let element = $('.collapse-heading .place')[i]
+					let html = $(element).html();
+					$(element).html(`<span style="color: #bf1e2d; margin-bottom: .25rem; display: block">${theHuyApp.recruitmentTitle.place.toUpperCase()}:</span>${html}`)
+				})
+				$('.collapse-heading .time').each(function (i, e) {
+					let element = $('.collapse-heading .time')[i]
+					let html = $(element).html();
+					$(element).html(`<span style="color: #bf1e2d; margin-bottom: .25rem; display: block">${theHuyApp.recruitmentTitle.time.toUpperCase()}:</span>${html}`)
+				})
+			} catch (error) {
+
+			}
+		}
+	}
 });
 
 /////////////-----------FUNCTIONS------------///////////////
@@ -317,7 +362,11 @@ const mobile_headerSidemenuToggle = () => {
 }
 
 const setBreadcrumbHomeIcon = () => {
-	theHuyApp.select('.breadcrumb li a span').innerHTML = "<i class='mdi mdi-home'></i>"
+	try {
+		theHuyApp.select('.breadcrumb li a span').innerHTML = "<i class='mdi mdi-home'></i>"
+	} catch (error) {
+
+	}
 }
 
 const collapseHeaderListener = () => {
@@ -664,6 +713,14 @@ const careerMobileMapping = () => {
 			desktopMethod: 'appendTo',
 			breakpoint: 768
 		}).watch();
+	} catch (error) {
+
+	}
+}
+
+const dealerMapping = () => {
+	try {
+		Mapping.mapElements.from('.wrap-dealer').to('.distribution-finder').use('appendTo');
 	} catch (error) {
 
 	}

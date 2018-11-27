@@ -7,7 +7,7 @@
 		background-color: #ffffff
 		top: -1px
 		left: 0
-		z-index: 999
+		z-index: 9999
 		box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1)
 		.search-wrapper
 			display: none
@@ -120,15 +120,18 @@ section.sidemenu-header
 	background: linear-gradient(315deg, #BF1E2D 0%, #AD1F5C 20%, #873879 40%, #59477F 60%, #344B71 80%, #2F4858 100%)
 	position: fixed
 	width: 20rem
-	height: calc(100vh - 4rem)
-	top: 4rem
-	right: -20rem
+	height: calc(100vh - 4rem + 1px)
+	top: calc(4rem - 1px)
+	right: 0
 	padding-top: 1rem
 	padding-bottom: 1rem
 	overflow-y: auto
 	z-index: 1001
+	opacity: 0
+	transform: scale(0)
+	transform-origin: top right
 	background-color: darkgreen
-	transition: .3s ease-in-out
+	transition: .5s ease-in-out
 	.custom-nav
 		margin-top: 0.5rem
 		.custom-nav-item
@@ -138,23 +141,27 @@ section.sidemenu-header
 				color: #ffffff
 				line-height: 3rem
 	&.active
-		right: 0
+		transform: scale(1)
+		opacity: 1
 	+media-breakpoint-up(lg)
 		display: none
 
 section.header-backdrop
 	position: fixed
 	background-color: #000000
-	opacity: .75
+	opacity: 0
 	cursor: pointer
-	height: calc(100vh - 4rem)
-	width: calc(100vw - 20rem)
+	height: calc(100vh - 4rem + 1px)
+	width: 100vw
 	z-index: 1000
-	top: 4rem
-	left: -200rem
-	transition: .3s ease-in-out
+	top: calc(4rem - 1px)
+	left: 0rem
+	transform: scale(0)
+	transform-origin: bottom left
+	transition: .5s ease-in-out
 	&.active
-		left: 0
+		opacity: .75
+		transform: scale(1)
 	+media-breakpoint-up(lg)
 		display: none
 

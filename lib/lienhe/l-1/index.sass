@@ -95,6 +95,7 @@ section.lienhe-1
 					outline: none
 					resize: none
 				input[type="text"], textarea
+					transition: .3s ease-in-out
 					&::-webkit-input-placeholder 
 						color: #999999
 						font-style: italic
@@ -114,6 +115,10 @@ section.lienhe-1
 						color: #999999
 						font-style: italic
 						font-size: .9375rem
+					&:focus
+						box-shadow: 0 0 0 1px $main, 0px 0px 15px 0px rgba(0, 0, 0, 0.3)
+						caret-color: $main
+						transition: .3s ease-in-out
 		.frm-captcha
 		.frm-btnwrap
 			label

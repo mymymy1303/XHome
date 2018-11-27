@@ -5,16 +5,12 @@
 
 	<!--Begin News-->
 	<xsl:template match="/">
-		<section class="duands-2">
-			<div class="container">
-				<div class="projects">
-					<xsl:if test="count(/NewsList/News) > 0">
-						<!--Call News Child-->
-						<xsl:apply-templates select="/NewsList/News"></xsl:apply-templates>
-					</xsl:if>
-				</div>
-			</div>
-		</section>
+		<div class="projects">
+			<xsl:if test="count(/NewsList/News) > 0">
+				<!--Call News Child-->
+				<xsl:apply-templates select="/NewsList/News"></xsl:apply-templates>
+			</xsl:if>
+		</div>
 	</xsl:template>
 
 	<!--Begin News Child-->
@@ -24,47 +20,32 @@
 		</xsl:if>
 		<a class="nth-col project">
 			<xsl:choose>
-				<xsl:when test="position() mod 9 = 1">
+				<xsl:when test="position() mod 6 = 1">
 					<xsl:attribute name="data-aos">
 						<xsl:text>fade-down-right</xsl:text>
 					</xsl:attribute>
 				</xsl:when>
-				<xsl:when test="position() mod 9 = 2">
+				<xsl:when test="position() mod 6 = 2">
 					<xsl:attribute name="data-aos">
 						<xsl:text>fade-down</xsl:text>
 					</xsl:attribute>
 				</xsl:when>
-				<xsl:when test="position() mod 9 = 3">
+				<xsl:when test="position() mod 6 = 3">
 					<xsl:attribute name="data-aos">
 						<xsl:text>fade-down-left</xsl:text>
 					</xsl:attribute>
 				</xsl:when>
-				<xsl:when test="position() mod 9 = 4">
-					<xsl:attribute name="data-aos">
-						<xsl:text>fade-right</xsl:text>
-					</xsl:attribute>
-				</xsl:when>
-				<xsl:when test="position() mod 9 = 5">
-					<xsl:attribute name="data-aos">
-						<xsl:text>zoom-out</xsl:text>
-					</xsl:attribute>
-				</xsl:when>
-				<xsl:when test="position() mod 9 = 6">
-					<xsl:attribute name="data-aos">
-						<xsl:text>fade-left</xsl:text>
-					</xsl:attribute>
-				</xsl:when>
-				<xsl:when test="position() mod 9 = 7">
+				<xsl:when test="position() mod 6 = 4">
 					<xsl:attribute name="data-aos">
 						<xsl:text>fade-up-right</xsl:text>
 					</xsl:attribute>
 				</xsl:when>
-				<xsl:when test="position() mod 9 = 8">
+				<xsl:when test="position() mod 6 = 5">
 					<xsl:attribute name="data-aos">
 						<xsl:text>fade-up</xsl:text>
 					</xsl:attribute>
 				</xsl:when>
-				<xsl:when test="position() mod 9 = 0 ">
+				<xsl:when test="position() mod 6 = 0">
 					<xsl:attribute name="data-aos">
 						<xsl:text>fade-up-left</xsl:text>
 					</xsl:attribute>

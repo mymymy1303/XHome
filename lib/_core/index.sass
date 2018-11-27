@@ -11,6 +11,8 @@ html, body
 	padding: 0
 	width: 100%
 	height: 100%
+main
+	overflow: hidden
 //Hamburger menu
 .hamburger
 	padding: 0
@@ -232,3 +234,193 @@ html, body
 .cmsadminpanel
 	right: 0 !important
 
+.news-detail, .news-detail-page
+	.duands-1
+		display: none
+	.tintucds-1
+		display: none
+
+.social
+	height: rem(20px)
+	.fb-like
+		height: rem(20px)
+		margin-top: -.5rem
+	display: flex
+	justify-content: space-between
+	align-items: center
+	width: rem(220px)
+	margin-top: 2rem
+
+.edit-link
+	color: $main
+	font-size: 1.5rem
+
+.dealer-country
+	display: none
+.dealer-province
+	margin-bottom: .625rem
+	.label
+		display: none
+.dealer-district
+	margin-bottom: 0
+	.label
+		display: none
+.dealer-button
+	display: none
+
+.lienhe-1
+	.form-group.frm-captcha
+		position: relative
+		flex-direction: row-reverse
+		width: calc(100% - 11.875rem)
+		justify-content: flex-end
+		float: left
+		+media-breakpoint-down(sm)
+			width: 100%
+			flex-direction: column-reverse
+		+media-breakpoint-up(lg)
+			margin-bottom: 0
+		.frm-captcha-input
+			width: calc(100% - 226px - 1rem)
+			+media-breakpoint-down(sm)
+				width: 100%
+				margin-right: 0
+			.label
+				display: none
+			input[type="text"]
+				width: 100%
+				padding-left: 1rem
+				height: rem(45px)
+				box-shadow: 0 0 0 1px #ebebeb
+				border: 0
+				outline: none
+				transition: .3s ease-in-out
+				&::-webkit-input-placeholder 
+					color: #999999
+					font-style: italic
+					font-size: .9375rem
+
+				&::-moz-placeholder 
+					color: #999999
+					font-style: italic
+					font-size: .9375rem
+
+				&:-ms-input-placeholder
+					color: #999999
+					font-style: italic
+					font-size: .9375rem
+
+				&:-moz-placeholder 
+					color: #999999
+					font-style: italic
+					font-size: .9375rem
+				&:focus
+					box-shadow: 0 0 0 1px $main, 0px 0px 15px 0px rgba(0, 0, 0, 0.3)
+					caret-color: $main
+		.RadCaptcha
+			width: fit-content !important
+			margin-right: .9375rem
+			+media-breakpoint-down(sm)
+				width: 100% !important
+				margin-right: 0
+				margin-bottom: 1rem
+			> span
+				position: absolute
+				bottom: -1.5rem
+				left: 0
+			> div
+				> div
+					display: flex
+					align-items: center
+					img
+						height: rem(45px) !important
+						width: rem(180px) !important
+						box-shadow: 0 0 0 1px #ebebeb
+			.rcRefreshImage
+				font-size: 0
+				position: relative
+				text-decoration: none
+				color: transparent
+				&:visited, &:active, &:hover
+					color: transparent
+				&:before
+					font-size: rem(30px)
+					color: #9d907f
+					margin-left: .5rem
+					margin-right: .5rem
+					font-family: "Font Awesome 5 Free"
+					content: "\f2f9"
+					font-weight: 900
+
+.lienhe-1
+	.info
+		+media-breakpoint-up(lg)
+			height: 100% !important
+	.form-group.frm-btnwrap
+		width: 10.9375rem
+		+media-breakpoint-up(lg)
+			margin-bottom: 0
+		.frm-btn
+			display: flex
+			justify-content: center
+			align-items: center
+			position: relative
+			width: 8.125rem
+			height: 2.8125rem
+			outline: none
+			border: 0
+			text-decoration: none
+			background-color: $main
+			color: #ffffff
+			font-size: .9375rem
+			text-transform: uppercase
+			margin-left: -1rem !important
+			+media-breakpoint-down(sm)
+				margin-left: -45px !important
+			&:before
+				position: absolute
+				z-index: 2
+				content: "\F054"
+				width: 2.8125rem
+				height: 2.8125rem
+				line-height: 2.8125rem
+				text-align: center
+				top: 0
+				right: -2.8125rem
+				font-family: 'Material Design Icons'
+				font-weight: 400
+				font-size: 1.25rem
+				color: #ffffff
+				background-color: $extra
+			&:after
+				position: absolute
+				z-index: 1
+				content: ''
+				width: 2.8125rem
+				height: 2.8125rem
+				line-height: 2.8125rem
+				top: 0
+				right: -2.4rem
+				background-color: $extra
+				transform: skew(15deg)
+
+			transition: all .3s ease-in-out
+			&:active, &:focus
+				background-color: $extra
+				color: #ffffff
+			+media-breakpoint-up(lg)
+				&:hover
+					background-color: $extra
+					color: #ffffff
+
+.footer-form
+	input[type="submit"]
+		border: 0
+		outline: none
+		border-radius: 0
+		box-shadow: none
+
+.Module-184
+	height: calc(100% - 2rem)
+	.ModuleContent
+		height: 100%
