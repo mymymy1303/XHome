@@ -38,6 +38,7 @@
 						</xsl:apply-templates>
 					</xsl:if>
 				</figure>
+				<xsl:value-of select="EditLink" disable-output-escaping="yes"></xsl:value-of>
 				<xsl:text disable-output-escaping="yes">&lt;/div&gt;</xsl:text>
 			</xsl:when>
 			<xsl:when test="position() mod 10 = 2">
@@ -49,6 +50,7 @@
 						</xsl:apply-templates>
 					</xsl:if>
 				</figure>
+				<xsl:value-of select="EditLink" disable-output-escaping="yes"></xsl:value-of>
 			</xsl:when>
 			<xsl:when test="position() mod 10 = 3">
 				<figure class="gallery">
@@ -58,6 +60,7 @@
 						</xsl:apply-templates>
 					</xsl:if>
 				</figure>
+				<xsl:value-of select="EditLink" disable-output-escaping="yes"></xsl:value-of>
 				<xsl:text disable-output-escaping="yes">&lt;/div&gt;&lt;/div&gt;</xsl:text>
 			</xsl:when>
 			<xsl:when test="position() mod 10 = 4">
@@ -70,6 +73,7 @@
 						</xsl:apply-templates>
 					</xsl:if>
 				</figure>
+				<xsl:value-of select="EditLink" disable-output-escaping="yes"></xsl:value-of>
 				<xsl:text disable-output-escaping="yes">&lt;/div&gt;</xsl:text>
 			</xsl:when>
 			<xsl:when test="position() mod 10 = 5">
@@ -81,6 +85,7 @@
 						</xsl:apply-templates>
 					</xsl:if>
 				</figure>
+				<xsl:value-of select="EditLink" disable-output-escaping="yes"></xsl:value-of>
 			</xsl:when>
 			<xsl:when test="position() mod 10 = 6">
 				<figure class="gallery">
@@ -90,6 +95,7 @@
 						</xsl:apply-templates>
 					</xsl:if>
 				</figure>
+				<xsl:value-of select="EditLink" disable-output-escaping="yes"></xsl:value-of>
 				<xsl:text disable-output-escaping="yes">&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</xsl:text>
 			</xsl:when>
 			<xsl:when test="position() mod 10 = 7">
@@ -103,6 +109,7 @@
 							</xsl:apply-templates>
 						</xsl:if>
 					</figure>
+					<xsl:value-of select="EditLink" disable-output-escaping="yes"></xsl:value-of>
 				</div>
 			</xsl:when>
 			<xsl:when test="position() mod 10 = 8">
@@ -114,6 +121,7 @@
 							</xsl:apply-templates>
 						</xsl:if>
 					</figure>
+					<xsl:value-of select="EditLink" disable-output-escaping="yes"></xsl:value-of>
 				</div>
 			</xsl:when>
 			<xsl:when test="position() mod 10 = 9">
@@ -125,6 +133,7 @@
 							</xsl:apply-templates>
 						</xsl:if>
 					</figure>
+					<xsl:value-of select="EditLink" disable-output-escaping="yes"></xsl:value-of>
 				</div>
 			</xsl:when>
 			<xsl:when test="position() mod 10 = 0">
@@ -136,6 +145,7 @@
 							</xsl:apply-templates>
 						</xsl:if>
 					</figure>
+					<xsl:value-of select="EditLink" disable-output-escaping="yes"></xsl:value-of>
 				</div>
 				<xsl:text disable-output-escaping="yes">&lt;/div&gt;</xsl:text>
 			</xsl:when>

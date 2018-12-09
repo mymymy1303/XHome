@@ -59,8 +59,8 @@
 						</figcaption>
 					</figure>
 				</a>
-				<xsl:text disable-output-escaping="yes">&lt;/div&gt;</xsl:text>
 				<xsl:value-of select="EditLink" disable-output-escaping="yes"></xsl:value-of>
+				<xsl:text disable-output-escaping="yes">&lt;/div&gt;</xsl:text>
 			</xsl:when>
 			<xsl:when test="position() mod 9 = 2">
 				<xsl:text disable-output-escaping="yes">&lt;div class=&quot;col-lg-4 sub-news&quot;
@@ -138,8 +138,8 @@
 						</figcaption>
 					</figure>
 				</a>
-				<xsl:text disable-output-escaping="yes">&lt;/div&gt;&lt;/div&gt;</xsl:text>
 				<xsl:value-of select="EditLink" disable-output-escaping="yes"></xsl:value-of>
+				<xsl:text disable-output-escaping="yes">&lt;/div&gt;&lt;/div&gt;</xsl:text>
 			</xsl:when>
 			<xsl:when test="position() mod 9 = 4">
 				<xsl:text disable-output-escaping="yes">&lt;div class=&quot;row normal-news&quot;&gt;</xsl:text>
@@ -179,6 +179,7 @@
 							</figcaption>
 						</figure>
 					</a>
+					<xsl:value-of select="EditLink" disable-output-escaping="yes"></xsl:value-of>
 				</div>
 			</xsl:when>
 			<xsl:when test="position() mod 9 = 5">
@@ -218,6 +219,7 @@
 							</figcaption>
 						</figure>
 					</a>
+					<xsl:value-of select="EditLink" disable-output-escaping="yes"></xsl:value-of>
 				</div>
 			</xsl:when>
 			<xsl:when test="position() mod 9 = 6">
@@ -257,6 +259,7 @@
 							</figcaption>
 						</figure>
 					</a>
+					<xsl:value-of select="EditLink" disable-output-escaping="yes"></xsl:value-of>
 				</div>
 			</xsl:when>
 			<xsl:when test="position() mod 9 = 7">
@@ -296,6 +299,7 @@
 							</figcaption>
 						</figure>
 					</a>
+					<xsl:value-of select="EditLink" disable-output-escaping="yes"></xsl:value-of>
 				</div>
 			</xsl:when>
 			<xsl:when test="position() mod 9 = 8">
@@ -335,6 +339,7 @@
 							</figcaption>
 						</figure>
 					</a>
+					<xsl:value-of select="EditLink" disable-output-escaping="yes"></xsl:value-of>
 				</div>
 			</xsl:when>
 			<xsl:when test="position() mod 9 = 0">
@@ -374,6 +379,7 @@
 							</figcaption>
 						</figure>
 					</a>
+					<xsl:value-of select="EditLink" disable-output-escaping="yes"></xsl:value-of>
 				</div>
 				<xsl:text disable-output-escaping="yes">&lt;/div&gt;</xsl:text>
 			</xsl:when>

@@ -75,13 +75,13 @@
 					<div class="block-title">
 						<h2>
 							<xsl:value-of select="Title" disable-output-escaping="yes"></xsl:value-of>
-							<xsl:value-of select="EditLink" disable-output-escaping="yes"></xsl:value-of>
 						</h2>
 					</div>
 					<div class="overlay"></div>
 				</figcaption>
 			</figure>
 		</a>
+		<xsl:value-of select="EditLink" disable-output-escaping="yes"></xsl:value-of>
 		<xsl:if test="position() mod 3 = 0">
 			<xsl:text disable-output-escaping="yes">&lt;/div&gt;</xsl:text>
 		</xsl:if>

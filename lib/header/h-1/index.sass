@@ -34,7 +34,7 @@
 			img
 				opacity: 0
 			.desktop-nav
-				box-shadow: 0px 11px 63px 0px rgba(0,0,0,0.5)
+				box-shadow: 0px 1px 11px 2px rgba(0,0,0,0.2)
 		.header
 			+flex-center()
 			justify-content: space-between
@@ -50,9 +50,10 @@
 		.custom-nav
 			display: flex
 			.custom-nav-item
-				height:
+				position: relative
 				a
 					color: #ffffff
+					background-color: $main
 					font-size: .9375rem
 					font-weight: 400
 					text-decoration: none
@@ -61,16 +62,84 @@
 					line-height: 4rem
 					padding-right: 1rem
 					padding-left: 1rem
-					background-color: $main
 					display: block
 					transition: .3s ease-in-out
 					&:hover, &:active, &:focus
-						background-color: #ffffff
-						box-shadow: 0 2px 0 0 $main
-						color: $main
+						background-color: #a62a37
+					&.active
+						background-color: #a62a37
 					+media-breakpoint-up(xl)
 						padding-right: 1.875rem
 						padding-left: 1.875rem
+				&.has-child
+					&:before
+						position: absolute
+						content: ''
+						width: 100%
+						height: 4px
+						background-color: #ffffff
+						z-index: 1
+						bottom: 0
+						left: 0
+						transform: scale(0)
+						transform-origin: center left
+						transition: .3s ease-in-out
+					.sub-link
+						position: absolute
+						z-index: 999
+						transform: scale(0)
+						transform-origin: top left
+						width: rem(290px)
+						background-color: #ffffff
+						box-shadow: 0 3px 10px rgba(5,5,5,.1)
+						transition: .3s ease-in-out
+						transition-delay: .3s
+						a
+							background-color: #ffffff
+							color: #333333
+							line-height: 1.5rem
+							display: flex
+							align-items: center
+							height: auto
+							padding-top: 1rem
+							padding-bottom: 1rem
+							transition: .3s ease-in-out
+							position: relative
+							&:before
+								position: absolute
+								content: ''
+								z-index: 3
+								width: 0
+								height: 2px
+								background-color: #bf1e2d
+								bottom: 0px
+								left: 0
+								transition: .3s ease-in-out
+							&:after
+								position: absolute
+								content: ''
+								z-index: 2
+								width: rem(290px)
+								height: 2px
+								background-color: #ebebeb
+								bottom: 0
+								right: 0
+								transition: .3s ease-in-out
+							&:hover, &:focus, &:active
+								&:before
+									width: rem(290px)
+								&:after
+									width: 0
+							&.active
+								background-color: #a62a37
+								color: #ffffff
+								&:before
+									width: rem(290px)
+								&:after
+									width: 0
+					&:hover
+						.sub-link, &:before
+							transform: scale(1)
 
 		.search-toggle
 			outline: none
@@ -109,7 +178,6 @@
 					z-index: 888
 					opacity: 1
 					bottom: -2.5rem
-
 //Sidemenu Header
 section.sidemenu-header
 	background: -moz-linear-gradient(135deg, #BF1E2D 0%, #AD1F5C 20%, #873879 40%, #59477F 60%, #344B71 80%, #2F4858 100%)
@@ -143,6 +211,14 @@ section.sidemenu-header
 	&.active
 		transform: scale(1)
 		opacity: 1
+	
+	.sub-link
+		height: auto
+		a
+			line-height: 1.5rem !important
+			margin-bottom: 1rem
+			display: block
+			padding-left: 1.5rem
 	+media-breakpoint-up(lg)
 		display: none
 

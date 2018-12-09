@@ -20,13 +20,19 @@ section.duanct-1
 			align-items: center
 			justify-content: space-between
 			width: 100%
-			overflow-x: auto
+			+media-breakpoint-down(md)
+				flex-direction: column
+				align-items: flex-start
 			li
 				position: relative
 				padding-left: 1.75rem
 				margin-right: 2rem
 				+media-breakpoint-up(lg)
 					margin-right: 0
+				+media-breakpoint-down(md)
+					margin-top: 1rem
+					&:first-child
+						margin-top: 0
 				&:nth-child(1)
 					&:before
 						position: absolute
@@ -84,6 +90,8 @@ section.duanct-1
 					color: #333333
 					white-space: nowrap
 					opacity: .8
+					+media-breakpoint-down(md)
+						white-space: initial
 					+media-breakpoint-up(lg)
 						font-size: .85rem
 					+media-breakpoint-up(xl)

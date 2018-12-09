@@ -151,7 +151,7 @@ theHuyApp.ready(() => {
 	theHuyApp.avoidNull(mobile_headerSidemenuToggle);
 
 	//Header collapse on scroll listener
-	collapseHeaderListener()
+	// collapseHeaderListener()
 
 	/////////////-----------END OF HEADER------------///////////////
 
@@ -230,6 +230,9 @@ theHuyApp.ready(() => {
 
 	/////////////-----------DISTRIBUTION------------///////////////
 	theHuyApp.avoidNull(dealerMapping);
+	$( document ).ajaxComplete(function() {
+		dealerMapping();
+	  });
 
 	theHuyApp.avoidNull(distributionSidemenuMapping);
 	theHuyApp.avoidNull(toggleDistributionSidemenu);
@@ -288,7 +291,10 @@ theHuyApp.ready(() => {
 /////////////-----------GLOBAL------------///////////////
 
 const aosInit = () => {
-	AOS.init();
+	AOS.init({
+		duration: 800,
+		once: true
+	});
 }
 
 const aosRefreshAfterLoad = () => {
@@ -369,19 +375,19 @@ const setBreadcrumbHomeIcon = () => {
 	}
 }
 
-const collapseHeaderListener = () => {
-	window.addEventListener('scroll', function (e) {
-		theHuyApp.currentScrollY = window.scrollY;
-		if (theHuyApp.currentScrollY <= 80) {
-			window.requestAnimationFrame(function () {
-				theHuyApp.removeClass(theHuyApp.select('.canhcam-header-1'), 'collapsed-header')
-			});
-		} else {
-			theHuyApp.addClass(theHuyApp.select('.canhcam-header-1'), 'collapsed-header')
-		}
+// const collapseHeaderListener = () => {
+// 	window.addEventListener('scroll', function (e) {
+// 		theHuyApp.currentScrollY = window.scrollY;
+// 		if (theHuyApp.currentScrollY <= 80) {
+// 			window.requestAnimationFrame(function () {
+// 				theHuyApp.removeClass(theHuyApp.select('.canhcam-header-1'), 'collapsed-header')
+// 			});
+// 		} else {
+// 			theHuyApp.addClass(theHuyApp.select('.canhcam-header-1'), 'collapsed-header')
+// 		}
 
-	});
-}
+// 	});
+// }
 
 /////////////-----------END OF HEADER------------///////////////
 
