@@ -438,3 +438,61 @@ main
 	+media-breakpoint-up(lg)
 		margin-top: calc(3rem + 156px + 32px)
 		padding-bottom: 4rem
+
+.btn-reindex
+	display: none
+
+.search-page-top
+	.titlepage
+		h1
+			font-size: 2rem
+			font-weight: 600
+			margin-left: -15px
+	.searchcontrols
+		width: fit-content
+		margin-right: auto
+		input[type="text"]
+			width: 100%
+			height: 2.5rem
+			outline: 0
+			border: 0
+			box-shadow: inset 0 0 0 1px #ebebeb
+			padding-left: 1rem
+			padding-right: 2.5rem
+			width: 100%
+			transition: .3s ease-in-out
+			&:focus, &:active
+				box-shadow: 0 0 0 1px #bf1e2d, 0 0 15px 0 rgba(0,0,0,.3)
+				caret-color: #bf1e2d
+			+media-breakpoint-up(sm)
+				width: 400px
+			+media-breakpoint-up(md)
+				width: 500px
+		input[type="submit"]
+			position: relative
+			font-size: 1rem
+			text-transform: uppercase
+			font-weight: 500
+			color: #ffffff
+			height: 2.5rem
+			width: 160px
+			+flex-center()
+			cursor: pointer
+			outline: none
+			border: 0
+			box-shadow: none
+			background: linear-gradient(90deg, rgba(166,42,55,1) 0%, rgba(191,30,45,1) 50%, rgba(237,38,36,1) 100%)
+			margin-top: 1rem
+			margin-left: auto
+			transition: .5s ease-in-out
+			&:hover
+				border-radius: 15px
+.searchresults
+	.modulepager
+		&:first-child
+			display: none
+
+.searchsummary
+	font-size: 1.25rem
+	margin-top: 2rem
+	margin-bottom: 2rem

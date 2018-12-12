@@ -1,6 +1,7 @@
 const theHuyApp = {
 	currentScrollY: 0,
 	projectDetailSlider: "",
+	projectDetailThumbnailSlider: "",
 	recruitmentTitle: {
 		career: "",
 		number: "",
@@ -212,11 +213,32 @@ theHuyApp.ready(() => {
 	/////////////-----------PROJECT DETAIL------------///////////////
 
 	theHuyApp.avoidNull(projectDetailSliderInit);
+	theHuyApp.avoidNull(projectDetailSliderProcessingBarInit);
 	theHuyApp.avoidNull(sliderCounterMapping);
 	theHuyApp.avoidNull(setSliderCounterTotal);
 	theHuyApp.avoidNull(setSliderCounterCurrentIndex);
 	theHuyApp.avoidNull(projectDetailOthersSliderInit);
 	theHuyApp.avoidNull(projectDetailsOtherSliderMapping);
+	theHuyApp.avoidNull(projectDetailThumbnailScroll);
+	theHuyApp.avoidNull(projectDetailSliderProcessingBar);
+	try {
+		$('.news-detail-page [data-fancybox]').fancybox({
+			thumbs: {
+				autoStart: true,
+			},
+			zoomOpacity: "auto",
+			transitionEffect: "slide",
+			transitionDuration: 500,
+			fullScreen: {
+				autoStart: true
+			},
+			afterClose: function () {
+				theHuyApp.projectDetailSlider.goTo(this.index)
+			}
+		});
+	} catch (error) {
+
+	}
 
 	/////////////-----------END OF PROJECT DETAIL------------///////////////
 
@@ -230,9 +252,9 @@ theHuyApp.ready(() => {
 
 	/////////////-----------DISTRIBUTION------------///////////////
 	theHuyApp.avoidNull(dealerMapping);
-	$( document ).ajaxComplete(function() {
+	$(document).ajaxComplete(function () {
 		dealerMapping();
-	  });
+	});
 
 	theHuyApp.avoidNull(distributionSidemenuMapping);
 	theHuyApp.avoidNull(toggleDistributionSidemenu);
@@ -559,10 +581,12 @@ const projectDetailSliderInit = () => {
 		items: 1,
 		slideBy: 'page',
 		controls: true,
+		mouseDrag: true,
 		controlsText: ["<span class='lnr lnr-arrow-left'></span>", "<span class='lnr lnr-arrow-right'></span>"],
 		navContainer: ".project-detail-thumbnails",
 		navAsThumbnails: true,
-		loop: false
+		loop: false,
+		speed: 500
 	});
 }
 
@@ -575,6 +599,7 @@ const projectDetailOthersSliderInit = () => {
 		controlsText: ["<span class='mdi mdi-chevron-left'></span>", "<span class='mdi mdi-chevron-right'></span>"],
 		loop: false,
 		nav: false,
+		speed: 500,
 		responsive: {
 			768: {
 				items: 3
@@ -612,6 +637,45 @@ const setSliderCounterCurrentIndex = () => {
 		})
 	} catch (error) {
 
+	}
+}
+
+const projectDetailThumbnailScroll = () => {
+	try {
+		theHuyApp.projectDetailSlider.events.on('indexChanged', () => {
+			let sliderInfo = theHuyApp.projectDetailSlider.getInfo();
+			let scrollToIndex = sliderInfo.index;
+			let scrollDistance = 0
+			if ($(window).width() > 576) {
+				scrollDistance = $('.duanct-1 .thumbnail')[scrollToIndex].offsetLeft - $('.duanct-1 .thumbnail')[2].offsetLeft;
+			} else {
+				scrollDistance = $('.duanct-1 .thumbnail')[scrollToIndex].offsetLeft - $('.duanct-1 .thumbnail')[1].offsetLeft;
+			}
+			$('.project-detail-thumbnails').stop().animate({ scrollLeft: scrollDistance }, 500);
+		})
+	} catch (error) {
+	}
+}
+
+const projectDetailSliderProcessingBarInit = () => {
+	try {
+		let sliderInfo = theHuyApp.projectDetailSlider.getInfo();
+		let totalItems = sliderInfo.slideCount;
+		$('.slider-processing-bar-thumb').css('width', `${(1) / totalItems * 100}%`)
+
+	} catch (error) {
+	}
+}
+
+const projectDetailSliderProcessingBar = () => {
+	try {
+		theHuyApp.projectDetailSlider.events.on('indexChanged', () => {
+			let sliderInfo = theHuyApp.projectDetailSlider.getInfo();
+			let scrollToIndex = sliderInfo.index;
+			let totalItems = sliderInfo.slideCount;
+			$('.slider-processing-bar-thumb').css('width', `${(scrollToIndex + 1) / totalItems * 100}%`)
+		})
+	} catch (error) {
 	}
 }
 

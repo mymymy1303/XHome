@@ -7,27 +7,8 @@
 	<xsl:template match="/">
 		<section class="duanct-1">
 			<div class="container">
-				<div class="row">
-					<div class="col">
-						<div class="tagline">
-							<div class="title">
-								<h1>
-									<xsl:value-of select="/NewsDetail/Title"></xsl:value-of>
-									<xsl:value-of select="/NewsDetail/EditLink" disable-output-escaping="yes"></xsl:value-of>
-								</h1>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col">
-						<div class="info">
-							<xsl:value-of select="/NewsDetail/FullContent" disable-output-escaping="yes"></xsl:value-of>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col">
+				<div class="row no-gutters">
+					<div class="col-lg-8 order-lg-1 order-2">
 						<div class="slider-wrapper">
 							<div class="project-detail-slider">
 								<xsl:if test="count(/NewsDetail/NewsImages)>1">
@@ -41,11 +22,29 @@
 									</xsl:apply-templates>
 								</xsl:if>
 							</div>
+							<div class="slider-processing-bar">
+								<div class="slider-processing-bar-thumb"></div>
+							</div>
 						</div>
 						<div class="slider-counter">
 							<p class="current-count">01</p>
 							<p>/</p>
 							<p class="total">15</p>
+						</div>
+					</div>
+					<div class="col-lg-4 order-lg-2 order-1">
+						<div class="projects-tagline-info-panel">
+							<div class="tagline">
+								<div class="title">
+									<h1>
+										<xsl:value-of select="/NewsDetail/Title"></xsl:value-of>
+										<xsl:value-of select="/NewsDetail/EditLink" disable-output-escaping="yes"></xsl:value-of>
+									</h1>
+								</div>
+							</div>
+							<div class="info">
+								<xsl:value-of select="/NewsDetail/FullContent" disable-output-escaping="yes"></xsl:value-of>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -117,6 +116,13 @@
 					<div class="box-zoom">
 						<a>
 							<xsl:attribute name="data-fancybox">
+								<xsl:text>images</xsl:text>
+							</xsl:attribute>
+							<xsl:attribute name="href">
+								<xsl:value-of select="ImageUrl"></xsl:value-of>
+							</xsl:attribute>
+							<xsl:attribute name="title">
+								<xsl:value-of select="Title" disable-output-escaping="yes"></xsl:value-of>
 							</xsl:attribute>
 							<img>
 							<xsl:attribute name="src">

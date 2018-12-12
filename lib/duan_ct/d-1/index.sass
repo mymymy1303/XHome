@@ -17,22 +17,17 @@ section.duanct-1
 			padding: 0
 			font-size: 0
 			display: flex
-			align-items: center
-			justify-content: space-between
 			width: 100%
-			+media-breakpoint-down(md)
-				flex-direction: column
-				align-items: flex-start
+			flex-direction: column
+			align-items: flex-start
+			padding-left: 1.875rem
 			li
 				position: relative
 				padding-left: 1.75rem
 				margin-right: 2rem
-				+media-breakpoint-up(lg)
-					margin-right: 0
-				+media-breakpoint-down(md)
-					margin-top: 1rem
-					&:first-child
-						margin-top: 0
+				margin-top: 1rem
+				&:first-child
+					margin-top: 0
 				&:nth-child(1)
 					&:before
 						position: absolute
@@ -88,10 +83,8 @@ section.duanct-1
 					font-weight: 400
 					line-height: 1.5rem
 					color: #333333
-					white-space: nowrap
+					white-space: initial
 					opacity: .8
-					+media-breakpoint-down(md)
-						white-space: initial
 					+media-breakpoint-up(lg)
 						font-size: .85rem
 					+media-breakpoint-up(xl)
@@ -102,10 +95,19 @@ section.duanct-1
 			.item
 				figure
 					.box-zoom
+						display: flex
+						align-items: center
+						justify-content: center
+						height: calc(100vh - 156px - 15rem)
+						background-color: #000000
+						width: 100%
 						a
+							height: 100%
+							width: 100%
 							img
-								max-width: 100%
-								height: auto
+								width: 100%
+								height: 100%
+								object-fit: cover
 
 		.project-detail-thumbnails
 			display: flex
@@ -119,13 +121,13 @@ section.duanct-1
 			margin-right: auto
 			&::-webkit-scrollbar
 				width: rem(2px)
-				height: rem(2px)
+				height: rem(4px)
 
 			&::-webkit-scrollbar-track
-				background: #ffffff
+				background: transparent
 
 			&::-webkit-scrollbar-thumb
-				background: $main
+				background: transparent
 			.thumbnail
 				width: fit-content
 				height: fit-content
@@ -158,6 +160,25 @@ section.duanct-1
 					box-shadow: 0 0 0 1px $main
 					&:before
 						opacity: 0
+
+		.slider-processing-bar
+			width: 100%
+			height: .5rem
+			border-radius: 10px
+			background-color: #e5e5e5
+			box-shadow: inset -1px -1px 4px 0px rgba(0,0,0,0.2)
+			position: relative
+			.slider-processing-bar-thumb
+				position: absolute
+				content: ''
+				width: 0%
+				height: .5rem
+				border-radius: 10px
+				background: linear-gradient(315deg,#bf1e2d 0,#ad1f5c 20%,#873879 40%,#59477f 60%,#344b71 80%,#2f4858 100%)
+				z-index: 1
+				top: 0
+				left: 0
+				transition: .5s ease-in-out
 
 		.tns-controls
 			display: flex
@@ -194,3 +215,29 @@ section.duanct-1
 			&.total
 				color: #808080
 				margin-left: .25rem
+
+	.projects-tagline-info-panel
+		width: 100%
+		height: 100%
+		+media-breakpoint-up(lg)
+			margin-top: 2.5rem
+			height: calc(100% - 2.5rem)
+			padding-top: 1.5rem
+			background: #c8404c
+			.tagline
+				.title
+					padding-left: 1.875rem
+					h1
+						font-size: 1.5rem
+						line-height: 1.75rem
+						font-weight: 600
+						letter-spacing: 1px
+						color: #ffffff
+			.info
+				ul
+					li
+						&:before
+							color: #ffffff
+						color: #ffffff
+						p
+							color: #ffffff
